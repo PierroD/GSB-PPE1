@@ -2,69 +2,77 @@
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
-<title>Home Page</title>
+
+<!--nom de la page -->
+<title>Accueil</title>
 
 <body>
-  <!-- carousel -->
-  <div class="row container mx-auto mt-5">
-    <div class="col-lg-6 col-md-12">
-      <div class=" mx-auto px-auto card card-body ">
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
-          <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-          </ol>
-
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <img class="d-block w-auto mx-auto" src="{{ asset("img/pills.jpg") }}" alt="First slide"
-                style="max-height:250px">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-auto mx-auto" src="{{ asset("img/plants.jpg") }}" alt="Second slide"
-                style="max-height:250px">
-            </div>
-            <div class="carousel-item">
-              <img class="d-block w-auto mx-auto" src="{{ asset("img/bandage.jpg") }}" alt="Third slide"
-                style="max-height:250px">
-            </div>
-          </div>
-          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-          </a>
-          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-6 col-md-12">
-      <h4 class="text-primary text-center"> GSBMarketPlace</h4>
-      <p class="text-center"> Le meilleur market place pour trouver tous les kits dont vous avez besoins, la meilleure
-        référence francaise pour les laboratoires</p>
+  <!-- bandeau temporaire pour mettre des pubs ou un petit msg-->
+  <div class="uk-container">
+    <div class="uk-margin-auto uk-text-center uk-margin-medium-top">
+      <img class="uk-text-center" data-src="/img/welcome.png" width="" height="200" alt="" uk-img
+        style="max-height:200px">
     </div>
   </div>
-  <!-- fn du carousel -->
 
-  <h4 class="text-left text-primary ml-5 mt-5"><u>Nos meilleurs ventes : </u></h4>
 
-  <div class="row mx-auto">
-    <div class="col-lg-3 col-md-6 mt-4 text-center">
-      <div class="card mx-auto" style="width: 18rem;">
-        <img class="card-img-top" src="{{ asset("/img/pills.jpg") }}" alt="Card image cap" style="height:180px">
-        <div class="card-body">
-          <h5 class="card-title">Nom du kit</h5>
-          <p class="card-text" maxlength="10">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde quo natus
-            iste eaque atque
-            minus praesentium eligendi facilis ipsa et.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+
+
+  <!--titre des type d'applis -->
+  <div class="uk-text-left uk-margin-medium-left uk-margin-large-top uk-column-1-2">
+    <div>
+      <h3 class="uk-text-left"><i class="far fa-star uk-text-danger"></i> Meilleurs produits <i
+          class="far fa-star uk-text-danger"></i></h3>
+    </div>
+    <div class="uk-text-right uk-margin-medium-right">
+      <button class="uk-button uk-button-danger uk-border-rounded">Plus</button>
+    </div>
+  </div>
+
+  <!-- bandeau avec les applis -->
+  <div class="uk-margin-medium-top">
+    <div class="uk-grid-collapse uk-child-width-1-6 uk-grid uk-margin-medium-left uk-margin-medium-right" uk-gird="">
+      <!-- TODO mettre une boucle foreach -->
+
+      <div>
+        <div class="uk-card uk-card-large uk-box-shadow-hover-large uk-card-default">
+          <div class="uk-card-media-top">
+            <img src="/img/pills.jpg" alt="">
+          </div>
+          <div class="uk-card-body">
+            <h3 class="uk-card-title uk-text-center">Dolipranne</h3>
+          </div>
+          <div class="uk-card-footer">
+            <div class="uk-column-1-2">
+              <div class="uk-text-left">
+                <p>
+                  Note sur 5
+                </p>
+              </div>
+              <div class="uk-text-right">
+                <p>
+                  Prix : €
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
 
+      <!-- fin de la boucle foreach pour applis-->
+
+    </div>
+  </div>
+
+  <div class="uk-text-left uk-margin-medium-left uk-margin-large-top uk-column-1-2">
+    <div>
+      <h3 class="uk-text-left"><i class="fas fa-plus uk-text-danger"></i> Les nouveautés <i
+          class="fas fa-plus uk-text-danger"></i>
+      </h3>
+    </div>
+    <div class="uk-text-right uk-margin-medium-right">
+      <button class="uk-button uk-button-danger uk-border-rounded">Plus</button>
+    </div>
   </div>
 
 </body>

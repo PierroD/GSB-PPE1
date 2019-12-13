@@ -25,3 +25,17 @@ Route::get('register', function () {
 Route::get('profil', function () {
     return view('profil');
 });
+
+Route::get('kit', function () {
+    return view('kit');
+});
+
+Route::get('list', function () {
+
+    return view('list');
+});
+
+Route::get('cart', function () {
+
+    return view('cart');
+});
