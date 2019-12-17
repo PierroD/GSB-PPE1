@@ -26,9 +26,7 @@ Route::get('profil', function () {
     return view('profil');
 });
 
-Route::get('kit', function () {
-    return view('kit');
-});
+Route::get('/society/{id}/kit', 'ProduitController@find')->where("id", "[0-9]{1,}");
 
 Route::get('list', function () {
 

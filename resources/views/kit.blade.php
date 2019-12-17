@@ -14,15 +14,17 @@
                 <div class="uk-grid-small uk-flex-middle" uk-grid>
                     <div class="uk-width-auto">
                         <!--head de l'appli avec note moyenne + titre plus auteur + uploadeur + logo -->
-                        <div class="uk-card-badge uk-label">Note Moyenne</div>
+                        <div class="uk-card-badge uk-label">{{ str_replace(".",",",$produit->grade) }} <i
+                                class="fas fa-star"></i></div>
                         <img class="uk-border-circle" width="40" height="40" src="/img/pills.jpg">
                     </div>
                     <div class="uk-width-expand">
-                        <h3 class="uk-card-title uk-margin-remove-bottom">Nom du kit</h3>
-                        <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">Nom de la société</p>
-                        <label class="uk-text-meta uk-width-auto uk-margin-remove-top uk-alert-warning">Nom + Prenom de
-                            la
-                            personne qui l'a ajouté</label>
+                        <h3 class="uk-card-title uk-margin-remove-bottom">{{ $produit->title }}</h3>
+                        <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">
+                            {{ $produit->society->company }}</p>
+                        <label
+                            class="uk-text-meta uk-width-auto uk-margin-remove-top uk-alert-warning">{{ $produit->society->last_name }}
+                            {{ $produit->society->first_name }}</label>
                     </div>
                 </div>
             </div>
@@ -129,7 +131,7 @@
                             </div>
                             <div>
                                 <p><span class="uk-icon-button uk-alert-success"><i class="fas fa-euro-sign"></i></span>
-                                    2,5/unité </p>
+                                    {{ str_replace(".",",",$produit->price) }}€/unité </p>
                             </div>
                         </div>
                     </div>
@@ -141,32 +143,35 @@
                 <!-- Patch Note-->
                 <div class="uk-alert-success uk-border-rounded">
                     <div class="uk-margin-medium-left">
-                        <p>Composition du produit</p>
-                        <p> - description <br /> - description
+                        <p>Composition du produit : </br> {{ $produit->composition }} </p>
+
                     </div>
-                    </p>
+
                 </div>
                 <!-- Desription rapide de l'app -->
-                <div>
+                <div class="uk-margin-medium-left">
                     <p class="uk-text-justify">
-                        Ceci est une description du produit
+                        <p>Description : <br /> {{ $produit->description }} </p>
                     </p>
                 </div>
             </div>
             <!-- Espace commentaire -->
             <div class="uk-card-footer">
                 <!-- Ecrire un commentaire -->
-                <div class="uk-column-1-2 uk-margin-auto">
+                <div class="uk-column-1-3 uk-margin-auto">
                     <div class="uk-margin-auto">
                         <input class="uk-input uk-border-rounded" type="text" placeholder="Ecrire un commentaire...">
 
                     </div>
-                    <div class="uk-flex uk-flex-center">
+                    <div class="uk-margin-auto">
                         <input class="uk-input uk-border-rounded uk-margin-small-right" type="text"
                             placeholder="Note sur 5">
-                        <a class="uk-button uk-button-primary uk-border-rounded"> Poster</a>
+                    </div>
+                    <div class="uk-text-center">
+                        <a class="uk-button uk-button-primary uk-border-rounded">Poster</a>
                     </div>
                 </div>
+                @foreach ($produit->comments as $comment)
                 <!-- Tous les commentaires -->
                 <div class="uk-card uk-card-default uk-margin-small-top uk-border-rounded uk-container">
                     <div class="uk-card-header">
@@ -176,12 +181,31 @@
                             </div>
                             <!--Pseudo + date du poste-->
                             <div class="uk-text-primary">
-                                <h3 class="uk-card-title uk-margin-remove-bottom">Pseudo</h3>
-                                <p class="uk-text-meta uk-margin-remove-top">Date du poste</p>
+                                <h3 class="uk-card-title uk-margin-remove-bottom">
+                                    {{ $comment->poster->last_name }}</h3>
+                                <p class="uk-text-meta uk-margin-remove-top">{{ $comment->build_date }}</p>
                                 <div>
-                                    <a class="uk-text-success"><i class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i><i class="fas fa-star"></i><i
-                                            class="fas fa-star"></i></a>
+                                    <p class="uk-text-success">
+                                        @php $note = $comment->note; @endphp
+                                        @for($i=0;$i<6;$i++) @if($note> 0.5)
+                                            @php
+                                            $resultat[$i]="fas fa-star";
+                                            $note--;
+                                            @endphp
+                                            @elseif ($note==0.5)
+                                            @php
+                                            $resultat[$i]="fas fa-star-half-alt";
+                                            $note = $note - 0.5;
+                                            @endphp
+                                            @else
+                                            @php
+                                            $resultat[$i]="far fa-star";
+                                            @endphp
+                                            @endif
+                                            @endfor
+                                            @for($j=0;$j<4;$j++) <i class="{{ $resultat[$j] }}"></i>
+                                                @endfor
+                                    </p>
                                 </div>
                                 <div class="uk-text-center">
                                     <a class="uk-text-large" style="text-decoration:none;">150M <i
@@ -193,10 +217,11 @@
                     <div class="uk-card-body">
                         <!--contenu du commentaire-->
                         <p>
-                            le text du commentaire
+                            {{ $comment->text }}
                         </p>
                     </div>
                 </div>
+                @endforeach
             </div>
         </div>
     </div>

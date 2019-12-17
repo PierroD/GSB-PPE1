@@ -15,8 +15,11 @@ class CommentaireTableSeeder extends Seeder
     public function run()
     {
         DB::table('commentaire')->insert([
+            'client_id' => '3',
+            'produit_id' => '1',
             'build_date' =>  Carbon::create('1999', '01', '01'),
-            'note' => '2.5'
+            'note' => '2.5',
+            'text' => Str::random(20)
         ]);
     }
 }

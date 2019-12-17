@@ -15,11 +15,24 @@
 </head>
 
 <header>
-  <nav class="uk-navbar-container" uk-navbar>
-    <!-- Barre de navigation éléments de gauche-->
+  <nav class="uk-navbar uk-navbar-container uk-margin">
     <div class="uk-navbar-left">
-
+      <a class="uk-navbar-toggle" uk-toggle="target: #offcanvas-nav-primary"><span uk-navbar-toggle-icon></span> <span
+          class="uk-margin-small-left">Menu</span>
+      </a>
+    </div>
+    <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
+        <a href="cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
+            disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true; mode: reveal">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+
+      <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
         <li class="uk-active"><a href="/">Logo</a></li>
         <li>
           <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Recherche <i
@@ -33,22 +46,18 @@
             </ul>
           </div>
         </li>
-      </ul>
-
-    </div>
-
-    <!-- Barre de navigation éléements de droite-->
-    <div class="uk-navbar-right">
-
-      <ul class="uk-navbar-nav">
+        <li class="uk-nav-header">Panier</li>
         <a href="cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
-            disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart"></span></a>
-        <a href="register" class="uk-button uk-button-primary uk-border-rounded uk-margin-small-right">Inscription</a>
-        <a href="login" class="uk-button uk-button-default uk-border-rounded uk-margin-small-right">Connexion</a>
+            disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
+        <li class="uk-nav-divider"></li>
+        <li class="uk-margin-small-top"><a href="register"
+            class="uk-button uk-button-primary uk-button-small uk-border-rounded uk-margin-small-right">Inscription</a>
+        </li>
+        <li class="uk-margin-small-top"> <a href="login"
+            class="uk-button uk-button-default uk-button-small uk-border-rounded uk-margin-small-right">Connexion</a>
+        </li>
       </ul>
 
     </div>
-    
-
-  </nav>
+  </div>
 </header>
