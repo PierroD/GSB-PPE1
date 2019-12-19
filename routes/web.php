@@ -11,10 +11,12 @@
 |
 */
 
+
+
+//Route::get('/', 'ProduitController@home');
 Route::get('/', function () {
     return view('index');
 });
-
 Route::get('login', function () {
     return view('login');
 });
@@ -26,7 +28,7 @@ Route::get('profil', function () {
     return view('profil');
 });
 
-Route::get('/society/{id}/kit', 'ProduitController@find')->where("id", "[0-9]{1,}");
+Route::get('/society/{id}/kit', 'ProduitController@getkit')->where("id", "[0-9]{1,}");
 
 Route::get('list', function () {
 

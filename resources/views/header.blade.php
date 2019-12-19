@@ -32,7 +32,7 @@
   <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true; mode: reveal">
     <div class="uk-offcanvas-bar uk-flex uk-flex-column">
 
-      <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+      <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical  uk-background-color-light">
         <li class="uk-active"><a href="/">Logo</a></li>
         <li>
           <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Recherche <i
@@ -47,13 +47,13 @@
           </div>
         </li>
         <li class="uk-nav-header">Panier</li>
-        <a href="cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
+        <a href="/cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
             disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
         <li class="uk-nav-divider"></li>
-        <li class="uk-margin-small-top"><a href="register"
+        <li class="uk-margin-small-top"><a href="/register"
             class="uk-button uk-button-primary uk-button-small uk-border-rounded uk-margin-small-right">Inscription</a>
         </li>
-        <li class="uk-margin-small-top"> <a href="login"
+        <li class="uk-margin-small-top"> <a href="/login"
             class="uk-button uk-button-default uk-button-small uk-border-rounded uk-margin-small-right">Connexion</a>
         </li>
       </ul>

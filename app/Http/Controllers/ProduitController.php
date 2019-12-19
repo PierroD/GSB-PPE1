@@ -2,15 +2,29 @@
 
 namespace App\Http\Controllers;
 
-use App\Produit;
 use Illuminate\Http\Request;
+use App\Repositories\ProduitRepositoryInterface;
 
 class ProduitController extends Controller
 {
-    public function find($id)
-    {
-        $produit = Produit::find($id);
+    protected $repositoryProduit;
 
-        return view('kit', compact('produit'));
+    /**
+     * ProduitController constructor.
+     *
+     * @param ProduitRepositoryInterface $produit
+     */
+    public function __construct(ProduitRepositoryInterface $repositoryProduit)
+    {
+        $this->repositoryProduit = $repositoryProduit;
     }
+
+
+    public function getkit($id)
+    {
+        $kit = $this->repositoryProduit->get($id);
+        return view('kit', compact('kit'));
+    }
+
+     
 }
