@@ -30,25 +30,29 @@
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon uk-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" required="" placeholder="Nom" type="text" name="nom">
+              <input class="uk-input" required="" placeholder="Nom" type="text" value="{{ old('last_name') }}"
+                name="last_name">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon uk-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" required="" placeholder="Prenom" type="text" name="prenom">
+              <input class="uk-input" required="" placeholder="Prenom" type="text" value="{{ old('first_name') }}"
+                name="first_name">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon uk-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" required="" placeholder="Pseudo" type="text" name="pseudo">
+              <input class="uk-input" required="" placeholder="Entreprise" type="text" value="{{ old('company') }}"
+                name="company">
             </div>
           </div>
           <div class="uk-margin">
             <div class="uk-inline">
               <span class="uk-form-icon uk-icon" uk-icon="icon: mail"></span>
-              <input class="uk-input" required="" placeholder="E-mail" type="email" name="mail">
+              <input class="uk-input" required="" placeholder="E-mail" type="email" value="{{ old('mail') }}"
+                name="mail">
             </div>
           </div>
           <div class="uk-margin">
@@ -61,12 +65,12 @@
             <div class="uk-inline">
               <span class="uk-form-icon uk-form-icon-flip uk-icon" uk-icon="icon: lock"></span>
               <input class="uk-input" required="" placeholder="Répéter le mot de passe" type="password"
-                name="password2">
+                name="password_confirmation">
             </div>
           </div>
-          <a href="index.php" class="uk-button uk-button-danger uk-border-rounded">Annuler</a>
+          <a class="uk-button uk-button-danger uk-border-rounded">Annuler</a>
           <button type="submit" class="uk-button uk-button-primary uk-border-rounded">S'inscrire</button>
-          <p> Vous possédez déjà un compte ?<a href="login"> Connectez-vous.</a></p>
+          <p> Vous possédez déjà un compte ?<a href="/login"> Connectez-vous.</a></p>
       </form>
     </div>
   </div>

@@ -23,4 +23,5 @@ class ProduitRepository implements ProduitRepositoryInterface
     {
         Produit::find($produit_id)->update($produit_data);
     }
+
 }

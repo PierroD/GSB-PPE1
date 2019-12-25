@@ -15,6 +15,7 @@ class ProduitTableSeeder extends Seeder
     public function run()
     {
         DB::table('produit')->insert([
+            'client_id' => '2',
             'title' => Str::random(10),
             'composition' => Str::random(10),
             'description' => Str::random(10),

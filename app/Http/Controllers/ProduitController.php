@@ -20,11 +20,15 @@ class ProduitController extends Controller
     }
 
 
-    public function getkit($id)
+    public function getKit($id)
     {
         $kit = $this->repositoryProduit->get($id);
         return view('kit', compact('kit'));
     }
-
-     
+    public function getAllKit()
+    {
+        $kits = $this->repositoryProduit->all();
+        $title = "Les kits";
+        return view('list', compact('kits', 'title'));
+    }
 }

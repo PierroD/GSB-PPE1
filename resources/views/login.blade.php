@@ -8,6 +8,7 @@
     <div class="uk-container uk-margin-large-top" style="width:50%">
         <div class="uk-card uk-card-default">
             <form class="uk-text-center" method="post">
+                {{ csrf_field() }}
                 <div class="uk-card-header">
                     <h2 class=""> Connexion</h2>
                     <i class="fas fa-user-circle fa-5x uk-text-center"></i>

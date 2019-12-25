@@ -32,7 +32,7 @@
   <!-- bandeau avec les applis -->
   <div class="uk-margin-medium-top">
     <div
-      class="uk-grid-collapse uk-child-width-1-6@xl uk-child-width-1-1@s uk-child-width-1-3@m uk-grid uk-margin-small-left uk-margin-small-right uk-container"
+      class="uk-grid-collapse uk-child-width-1-3@xl uk-child-width-1-1@s uk-child-width-1-3@m uk-grid uk-margin-small-left uk-margin-small-right uk-container"
       uk-gird="">
       <!-- TODO mettre une boucle foreach -->
 

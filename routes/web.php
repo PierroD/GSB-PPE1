@@ -17,9 +17,11 @@
 Route::get('/', function () {
     return view('index');
 });
-Route::get('login', function () {
+Route::get('/login', function () {
     return view('login');
 });
+Route::post('/login', 'ConnectionController@register');
+
 Route::get('register', function () {
     return view('register');
 });
@@ -28,12 +30,11 @@ Route::get('profil', function () {
     return view('profil');
 });
 
-Route::get('/society/{id}/kit', 'ProduitController@getkit')->where("id", "[0-9]{1,}");
+Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{1,}");
 
-Route::get('list', function () {
-
-    return view('list');
-});
+Route::get('/list', 'ClientController@getAll');
+Route::get('/list/societies', 'ClientController@getAllSociety');
+Route::get('/list/kits', 'ProduitController@getAllKit');
 
 Route::get('cart', function () {
 

@@ -41,8 +41,10 @@
             <ul class="uk-nav uk-dropdown-nav">
               <li class="uk-active"><a class="uk-text-primary" href="#">Liste des éléments</a></li>
               <li class="uk-nav-divider"></li>
-              <li><a href="#">Liste des kits</a></li>
-              <li><a href="#">Liste des laboratoires</a></li>
+              <li><a href="/list/kits">Liste des Kits</a></li>
+              <li><a href="/list/societies">Liste des Laboratoires</a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a href="/list">Liste des Kits & Laboratoires</a></li>
             </ul>
           </div>
         </li>
