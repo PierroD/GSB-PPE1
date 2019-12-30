@@ -31,4 +31,40 @@ class ProduitController extends Controller
         $title = "Les kits";
         return view('list', compact('kits', 'title'));
     }
+    public function getIndex()
+    {
+        $popularKits = $this->repositoryProduit->getOrderBy('grade', 'desc')->take(3);
+        $newKits = $this->repositoryProduit->getNew(); //->take(3);
+        return view('index', compact('popularKits', 'newKits'));
+    }
+    public function getAllKitbyGrade()
+    {
+        $kits = $this->repositoryProduit->getOrderBy('grade', 'desc');
+        $title = "Les kits les mieux notés";
+        return view('list', compact('kits', 'title'));
+    }
+    public function getAllKitbyPriceDesc()
+    {
+        $kits = $this->repositoryProduit->getOrderBy('price', 'desc');
+        $title = "Les kits par prix décroissant";
+        return view('list', compact('kits', 'title'));
+    }
+    public function getAllKitbyPriceAsc()
+    {
+        $kits = $this->repositoryProduit->getOrderBy('price', 'asc');
+        $title = "Les kits par prix Croissant";
+        return view('list', compact('kits', 'title'));
+    }
+    public function getAllKitbyNameDesc()
+    {
+        $kits = $this->repositoryProduit->getOrderBy('title', 'desc');
+        $title = "Les kits par nom Décroissant";
+        return view('list', compact('kits', 'title'));
+    }
+    public function getAllKitbyNameAsc()
+    {
+        $kits = $this->repositoryProduit->getOrderBy('title', 'asc');
+        $title = "Les kits par nom Croissant";
+        return view('list', compact('kits', 'title'));
+    }
 }

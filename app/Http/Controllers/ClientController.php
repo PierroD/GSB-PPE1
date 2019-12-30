@@ -26,4 +26,8 @@ class ClientController extends Controller
         $title = "Les laboratoires";
         return view('list', compact('societies', 'title'));
     }
+    public function getAllOrderBy(Request $request)
+    {
+        // if($request)
+    }
 }

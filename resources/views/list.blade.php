@@ -15,13 +15,13 @@
     <!-- tableau qui affiche les données -->
     <div class="uk-card-default  uk-card-body uk-container">
         <div class="uk-grid-small uk-child-width-1-2" uk-grid>
-            <div>
+            <div class="uk-margin-auto-vertical">
                 <div class="uk-text-left uk-margin-auto">
                     <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Type
                         sélectionné <i class="fas fa-sort-down uk-margin-small-left"></i></a>
                     <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="/list/kits">Les Kits</a></li>
+                            <li><a href="/list/kits/">Les Kits</a></li>
                             <li><a href="/list/societies">Les Laboratoires</a></li>
                             <li class="uk-nav-divider"></li>
                             <li><a href="/list">Kits & Laboratoires</a></li>
@@ -29,16 +29,16 @@
                     </div>
                 </div>
             </div>
-            <div>
+            <div class="uk-margin-auto-vertical">
                 <div class="uk-text-right uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Trier par
-                        <i class="fas fa-sort-down uk-margin-small-left"></i></a>
-                    <div uk-dropdown="pos: left-center; mode: click">
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Trier par<i
+                            class="fas fa-sort-down uk-margin-small-left"></i></a>
+                    <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="#">Prix croissant</a></li>
-                            <li><a href="#">Prix décroissant</a></li>
-                            <li><a href="#">Nom croissant</a></li>
-                            <li><a href="#">Nom décroissant</a></li>
+                            <li><a href="orderBy/priceDesc">Prix Décroissant</a></li>
+                            <li><a href="orderBy/priceAsc">Prix Croissant</a></li>
+                            <li><a href="orderBy/nameDesc">Nom Décroissant</a></li>
+                            <li><a href="orderBy/nameAsc">Nom Croissant</a></li>
                         </ul>
                     </div>
                 </div>
@@ -55,7 +55,7 @@
     <table class="uk-table uk-table-hover uk-table-divider uk-container-small uk-margin-auto">
         <thead>
             <tr class="text-center">
-                <th>Nom du produit</th>
+                <th>Nom du Kit</th>
                 <th>Note</th>
                 <th class="uk-text-right">Prix</th>
             </tr>
@@ -94,7 +94,7 @@
     <table class="uk-table uk-table-hover uk-table-divider uk-container-small uk-margin-auto">
         <thead>
             <tr class="text-center">
-                <th>Nom du produit</th>
+                <th>Nom du Kit</th>
                 <th>Note</th>
                 <th class="uk-text-right">Prix</th>
             </tr>

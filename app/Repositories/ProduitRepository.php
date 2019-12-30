@@ -24,4 +24,12 @@ class ProduitRepository implements ProduitRepositoryInterface
         Produit::find($produit_id)->update($produit_data);
     }
 
+    public function getNew()
+    {
+        // return Produit::lastest()->get();
+    }
+    public function getOrderBy($data, $type)
+    {
+        return Produit::orderBy($data, $type)->get();
+    }
 }

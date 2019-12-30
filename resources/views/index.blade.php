@@ -25,42 +25,57 @@
           class="far fa-star uk-text-danger"></i></h3>
     </div>
     <div class="uk-text-right uk-margin-medium-right">
-      <button class="uk-button uk-button-danger uk-border-rounded">Plus</button>
+      <a class="uk-button uk-button-danger uk-border-rounded" href="list/kits/orderBy/grade">Plus</a>
     </div>
   </div>
 
   <!-- bandeau avec les applis -->
   <div class="uk-margin-medium-top">
     <div
-      class="uk-grid-collapse uk-child-width-1-3@xl uk-child-width-1-1@s uk-child-width-1-3@m uk-grid uk-margin-small-left uk-margin-small-right uk-container"
+      class="uk-grid-collapse uk-child-width-1-3@xl uk-child-width-1-1@s uk-child-width-1-3@m uk-grid uk-margin-small-left uk-margin-small-right uk-container uk-margin-auto uk-margin-medium-bottom"
       uk-gird="">
       <!-- TODO mettre une boucle foreach -->
-
+      @foreach($popularKits as $popKit)
       <div>
-        <div class="uk-card uk-card-large uk-box-shadow-hover-large uk-card-default">
-          <div class="uk-card-media-top">
-            <img src="/img/pills.jpg" alt="">
+        <div
+          class="uk-card uk-card-large uk-box-shadow-hover-large uk-card-default uk-margin-small-left uk-margin-small-right uk-margin-small-bottom ">
+          <div class="uk-card-media-top uk-text-center">
+            @if(isset($popKit->images[0]))
+            <img src="{{ $popKit->images[0]->name }}" style="width:300; height:176" class="uk-margin-medium-bottom"
+              alt="">
+            @else
+            <div class="uk-container uk-margin-medium-bottom ">
+              <div
+                class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto">
+                <h4 class="uk-text-italic uk-text-muted">Pas d'image disponible</h4>
+                <i class="fas fa-box-open fa-3x"></i>
+              </div>
+            </div>
+            @endif
           </div>
           <div class="uk-card-body">
-            <h3 class="uk-card-title uk-text-center">Dolipranne</h3>
+            <div class="uk-card-title uk-text-center"><a class="uk-button uk-button-text uk-button-large"
+                href="society/kit/{{ $popKit->id }}">{{ $popKit->title }}</a>
+            </div>
           </div>
           <div class="uk-card-footer">
             <div class="uk-column-1-2">
               <div class="uk-text-left">
                 <p>
-                  Note sur 5
+                  {{ str_replace(".",",",$popKit->grade) }}<i
+                    class="fas fa-star uk-text-primary uk-margin-small-left"></i>
                 </p>
               </div>
               <div class="uk-text-right">
                 <p>
-                  Prix : €
+                  {{ str_replace(".",",",$popKit->price) }} €
                 </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-
+      @endforeach
       <!-- fin de la boucle foreach pour applis-->
 
     </div>

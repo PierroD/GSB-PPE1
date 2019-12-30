@@ -23,7 +23,7 @@
     </div>
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
-        <a href="cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
+        <a href="/cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
             disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
       </ul>
     </div>
