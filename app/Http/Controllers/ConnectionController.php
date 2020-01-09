@@ -11,7 +11,6 @@ use App\Http\Requests\Auth\RegisterRequest;
 
 class ConnectionController extends Controller
 {
-
     public function register(RegisterRequest $request)
     {
 

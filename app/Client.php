@@ -11,4 +11,10 @@ class Client extends Model
     protected $fillable = ["last_name", "first_name", "compagny", "gender", "birth_date", "mail", "password", "money", "fidelity"];
 
     public $timestamps = false;
+
+    public function kits()
+    {
+        return $this->hasMany(Produit::class, 'client_id', 'id');
+    }
 }
+
