@@ -2,26 +2,44 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+
 use Illuminate\Http\Request;
-use App\Client;
+use App\User;
+use App\Http\Requests\Auth\RegisterRequest;
 
 class ConnectionController extends Controller
 {
-
-    public function register(Request $request)
+    public function register(RegisterRequest $request)
     {
-        $this->validation($request);
-        Client::create($request->all());
-        return $request->all();
+
+        if (Auth::check() == false) {
+            $request['password'] = Hash::make($request['password']);
+            User::create($request->all());
+        } else {
+            return redirect()->action('ProduitController@getIndex');
+        }
     }
     public function validation($request)
     {
-        return $this->validate($request, [
-            'last_name' => 'required|max:255',
-            'first_name' => 'required|max:255',
-            'company' => 'required|max:255',
-            'mail' => 'required|email|unique:client|max:255',
-            'password' => 'required|confirmed|max:255',
-        ]);
+    }
+    public function connection(Request $request)
+    {
+        if (Auth::check() == false) {
+            $mail = $request->get('mail');
+            $mdpconnect = $request->get('password');
+            if (!empty($mail) && !empty($mdpconnect)) {
+                Auth::attempt(['mail' => $mail, 'password' => $mdpconnect]);
+                return redirect()->action('ProduitController@getIndex');
+            }
+        } else {
+            return redirect()->action('ProduitController@getIndex');
+        }
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->action('ProduitController@getIndex');
     }
 }

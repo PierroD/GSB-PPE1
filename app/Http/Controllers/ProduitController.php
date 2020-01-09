@@ -28,8 +28,8 @@ class ProduitController extends Controller
     public function getAllKit()
     {
         $kits = $this->repositoryProduit->all();
-        $title = "Les kits";
-        return view('list', compact('kits', 'title'));
+        $title = "Les Kits";
+        return view('listKits', compact('kits', "title"));
     }
     public function getIndex()
     {
@@ -41,30 +41,30 @@ class ProduitController extends Controller
     {
         $kits = $this->repositoryProduit->getOrderBy('grade', 'desc');
         $title = "Les kits les mieux notés";
-        return view('list', compact('kits', 'title'));
+        return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceDesc()
     {
         $kits = $this->repositoryProduit->getOrderBy('price', 'desc');
         $title = "Les kits par prix décroissant";
-        return view('list', compact('kits', 'title'));
+        return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceAsc()
     {
         $kits = $this->repositoryProduit->getOrderBy('price', 'asc');
         $title = "Les kits par prix Croissant";
-        return view('list', compact('kits', 'title'));
+        return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyNameDesc()
     {
         $kits = $this->repositoryProduit->getOrderBy('title', 'desc');
         $title = "Les kits par nom Décroissant";
-        return view('list', compact('kits', 'title'));
+        return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyNameAsc()
     {
         $kits = $this->repositoryProduit->getOrderBy('title', 'asc');
         $title = "Les kits par nom Croissant";
-        return view('list', compact('kits', 'title'));
+        return view('listKits', compact('kits', 'title'));
     }
 }

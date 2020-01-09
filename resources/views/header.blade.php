@@ -30,34 +30,56 @@
   </nav>
 
   <div id="offcanvas-nav-primary" uk-offcanvas="overlay: true; mode: reveal">
-    <div class="uk-offcanvas-bar uk-flex uk-flex-column">
+    <div class="uk-offcanvas-bar uk-flex uk-flex-column ">
 
-      <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical  uk-background-color-light">
-        <li class="uk-active"><a href="/">Logo</a></li>
+      <ul class="uk-nav uk-nav-primary uk-nav-center uk-margin-auto-vertical">
+        <li class="uk-active"><a href="/" class="uk-text-danger">Logo</a></li>
         <li>
-          <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Recherche <i
-              class="fas fa-sort-down uk-margin-small-left"></i></a>
+          <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize uk-text-danger"
+            type="button">Recherche <i class="fas fa-sort-down uk-margin-small-left"></i></a>
           <div uk-dropdown="pos: bottom-justify; mode: click">
             <ul class="uk-nav uk-dropdown-nav">
-              <li class="uk-active"><a class="uk-text-primary" href="#">Liste des éléments</a></li>
+              <li class="uk-active"><a class="uk-text-danger" href="#">Liste des éléments</a></li>
               <li class="uk-nav-divider"></li>
               <li><a href="/list/kits">Liste des Kits</a></li>
               <li><a href="/list/societies">Liste des Laboratoires</a></li>
               <li class="uk-nav-divider"></li>
-              <li><a href="/list">Liste des Kits & Laboratoires</a></li>
+              <li><a href="/list/">Liste des Kits & Laboratoires</a></li>
             </ul>
           </div>
         </li>
-        <li class="uk-nav-header">Panier</li>
-        <a href="/cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
-            disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
+        <li class="uk-nav-header uk-text-danger">Panier</li>
+        <a href="/cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top uk-text-danger"
+            disabled>2</span><span class="uk-icon-button uk-alert-primary uk-text-danger" uk-icon="cart"
+            offset="100"></span></a>
         <li class="uk-nav-divider"></li>
+        @if(Auth::check()==true)
+        <li class="uk-margin-medium-bottom uk-margin-medium-top">
+          <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize uk-text-danger" type="button"><i
+              class="far fa-user"></i> bonjour {{Auth::User()->last_name}} <i
+              class="fas fa-sort-down uk-margin-small-left"></i></a>
+          <div uk-dropdown="pos: bottom-justify; mode: click">
+            <ul class="uk-nav uk-dropdown-nav">
+              <li class="uk-active"><a class="uk-text-danger" href="#">Liste des options</a></li>
+
+              <li><a href="/list/kits"> <i class="far fa-user uk-text-danger"></i> Voir mon profil</a></li>
+              <li><a href="/list/societies"><i class="fas fa-shopping-cart uk-text-danger"></i> Voir mes achats</a></li>
+              <li class="uk-nav-divider"></li>
+              <li class="uk-margin-small-top"><a href="/disconnect"
+                  class="uk-button uk-button-danger uk-button-small uk-border-rounded uk-margin-small-right uk-text-light">Deconnexion</a>
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        @else
         <li class="uk-margin-small-top"><a href="/register"
-            class="uk-button uk-button-primary uk-button-small uk-border-rounded uk-margin-small-right">Inscription</a>
+            class="uk-button uk-button-danger uk-button-small uk-border-rounded uk-margin-small-right">Inscription</a>
         </li>
         <li class="uk-margin-small-top"> <a href="/login"
-            class="uk-button uk-button-default uk-button-small uk-border-rounded uk-margin-small-right">Connexion</a>
+            class="uk-button uk-button-default uk-button-small uk-border-rounded uk-margin-small-right uk-text-danger">Connexion</a>
         </li>
+        @endif
       </ul>
 
     </div>

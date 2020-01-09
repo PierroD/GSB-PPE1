@@ -15,13 +15,13 @@ class ProduitTableSeeder extends Seeder
     public function run()
     {
         DB::table('produit')->insert([
-            'client_id' => '2',
+            'user_id' => '1',
             'title' => Str::random(10),
             'composition' => Str::random(10),
             'description' => Str::random(10),
-            'grade' => '3.5',
+            'grade' => '2.5',
             'version' => Str::random(10),
-            'price' => '5.5',
+            'price' => '8.5',
             'logo' => Str::random(10),
             'purchase_number' => '10',
         ]);

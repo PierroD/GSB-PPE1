@@ -17,7 +17,7 @@
                     <div class="uk-margin">
                         <div class="uk-inline">
                             <span class="uk-form-icon uk-icon" uk-icon="icon: mail"></span>
-                            <input class="uk-input" name="email" type="text" placeholder="Adresse Mail">
+                            <input class="uk-input" name="mail" type="text" placeholder="Adresse Mail">
                         </div>
                     </div>
                     <div class="uk-margin">
