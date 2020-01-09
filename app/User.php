@@ -15,9 +15,9 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $table = "user";
+    protected $primaryKey = "id";
+    protected $fillable = ["last_name", "first_name", "company", "gender", "birth_date", "mail", "password", "money", "fidelity"];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -36,4 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public $timestamps = false;
+
+    public function kits()
+    {
+        return $this->hasMany(Produit::class, 'user_id', 'id');
+    }
 }
