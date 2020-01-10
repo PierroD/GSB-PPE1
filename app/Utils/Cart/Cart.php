@@ -1,10 +1,18 @@
 <?php
 
-namespace App;
+namespace App\Utils\Cart;
+
+use App\Produit;
+
 
 class Cart
 {
-    private $cart;
+    protected $cart;
+
+    public function __construct()
+    {
+    }
+
     public function add(Produit $produit): void
     {
         if (isset($this->cart)) {
@@ -19,6 +27,7 @@ class Cart
         } else {
             $this->cart[] = $produit;
         }
+        session()->put('cart', $this->cart);
     }
     public function Countproduit(): int
     {
@@ -44,5 +53,6 @@ class Cart
                 unset($this->cart[$produit->getId()]);
             }
         }
+        session()->forget('cart');
     }
 }

@@ -16,26 +16,31 @@
 //Route::get('/', 'ProduitController@home');
 Route::get('/', 'ProduitController@getIndex'); //index
 
-// Tous les kits et societies \\
-Route::get('/list', 'UserController@getAll'); //tout
 
 
 Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{1,}"); //Un Kit
 
 
 Route::group(['prefix' => 'list'], function () {
-    // Kits \\
-    Route::get('/kits', 'ProduitController@getAllKit'); //Kits
-    Route::get('/kits/orderBy/grade', 'ProduitController@getAllKitbyGrade'); //Kits orderby Grade
-    Route::get('/kits/orderBy/priceDesc', 'ProduitController@getAllKitbyPriceDesc'); //Kits orderby PrixDesc
-    Route::get('/kits/orderBy/priceAsc', 'ProduitController@getAllKitbyPriceAsc'); //Kits orderby PrixAsc
-    Route::get('/kits/orderBy/nameDesc', 'ProduitController@getAllKitbyNameDesc'); //Kit orderby NameDesc
-    Route::get('/kits/orderBy/nameAsc', 'ProduitController@getAllKitbyNameAsc');  //Kit orderby NameAsc
-    // Societies \\
-    Route::get('/societies', 'UserController@getAllSociety'); // Societes
-    Route::get('/societies/orderBy/nameDesc', 'UserController@getAllKitbyNameDesc'); //Societes orderby NameDesc
-    Route::get('/societies/orderBy/nameAsc', 'UserController@getAllKitbyNameAsc');  //Societes orderby NameAsc
+    // Tous les kits et societies \\
+    Route::get('/', 'UserController@getAll'); //tout
 
+    // Kits \\
+    Route::group(['prefix' => 'kits'], function () {
+        Route::get('/', 'ProduitController@getAllKit'); //Kits
+        Route::get('/orderBy/grade', 'ProduitController@getAllKitbyGrade'); //Kits orderby Grade
+        Route::get('/orderBy/priceDesc', 'ProduitController@getAllKitbyPriceDesc'); //Kits orderby PrixDesc
+        Route::get('/orderBy/priceAsc', 'ProduitController@getAllKitbyPriceAsc'); //Kits orderby PrixAsc
+        Route::get('/orderBy/nameDesc', 'ProduitController@getAllKitbyNameDesc'); //Kit orderby NameDesc
+        Route::get('/orderBy/nameAsc', 'ProduitController@getAllKitbyNameAsc');  //Kit orderby NameAsc
+    });
+
+    Route::group(['prefix' => 'societies'], function () {
+        // Societies \\
+        Route::get('/', 'UserController@getAllSociety'); // Societes
+        Route::get('/orderBy/nameDesc', 'UserController@getAllKitbyNameDesc'); //Societes orderby NameDesc
+        Route::get('/orderBy/nameAsc', 'UserController@getAllKitbyNameAsc');  //Societes orderby NameAsc
+    });
 });
 
 
