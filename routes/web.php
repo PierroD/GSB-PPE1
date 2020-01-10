@@ -52,6 +52,7 @@ Route::get('/login', function () {
 Route::post('/login', 'ConnectionController@connection');
 
 // Register \\
+
 Route::get('register', function () {
     return view('register');
 });
@@ -68,6 +69,8 @@ Route::get('profil', function () {
 Route::get('createKit', function () {
     return view('createKit');
 });
+
+
 
 
 

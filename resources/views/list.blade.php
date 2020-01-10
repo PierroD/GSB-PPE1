@@ -66,12 +66,12 @@
                         class="uk-text-emphasis uk-button uk-button-text">{{ $kit->title }}</a></td>
                 <td>{{ str_replace(".",",",$kit->grade) }} <i class="fas fa-star uk-text-primary"></i></td>
                 <td class="uk-text-right">{{ $kit->price }} € </td>
+
             </tr>
             @endforeach
         </tbody>
     </table>
     @endforeach
-
     <!-- fin du tableau -->
 </body>
 
