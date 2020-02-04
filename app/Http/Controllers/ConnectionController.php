@@ -2,44 +2,52 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
-use App\User;
 use App\Http\Requests\Auth\RegisterRequest;
+use App\Repositories\AuthenticationRepositoryInterface;
 
 class ConnectionController extends Controller
 {
-    public function register(RegisterRequest $request)
+    protected $repositoryAuth;
+
+    /**
+     * ConnectionController constructor.
+     *
+     * @param AuthenticationRepositoryInterface $produit
+     */
+    public function __construct(AuthenticationRepositoryInterface $repositoryAuth)
+    {
+        $this->repositoryAuth = $repositoryAuth;
+    }
+
+    public function setRegister(RegisterRequest $request)
     {
 
-        if (Auth::check() == false) {
-            $request['password'] = Hash::make($request['password']);
-            User::create($request->all());
-        } else {
-            return redirect()->action('ProduitController@getIndex');
+        if($this->repositoryAuth->register($request) == true)
+        {
+            return view('login');
+        }
+        else
+        {
+            return view('register');
         }
     }
-    public function validation($request)
+
+    public function setSignin(Request $request)
     {
-    }
-    public function connection(Request $request)
-    {
-        if (Auth::check() == false) {
-            $mail = $request->get('mail');
-            $mdpconnect = $request->get('password');
-            if (!empty($mail) && !empty($mdpconnect)) {
-                Auth::attempt(['mail' => $mail, 'password' => $mdpconnect]);
-                return redirect()->action('ProduitController@getIndex');
-            }
-        } else {
+        if($this->repositoryAuth->signin($request) == true)
+        {
             return redirect()->action('ProduitController@getIndex');
         }
+        else
+        {
+            return view('login');
+        }
     }
-    public function logout()
+    public function setLogout()
     {
-        Auth::logout();
+        $this->repositoryAuth->logout();
         return redirect()->action('ProduitController@getIndex');
     }
 }

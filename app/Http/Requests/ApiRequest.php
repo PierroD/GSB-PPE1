@@ -37,9 +37,9 @@ abstract class ApiRequest extends LaravelFormRequest
     {
         $errors = (new ValidationException($validator))->errors();
         throw new HttpResponseException(
-             dd($errors
+            dd($errors)
+        );
 
-         dd($errors);
+        dd($errors);
     }
 }
-

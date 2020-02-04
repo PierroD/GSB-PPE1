@@ -3,14 +3,18 @@
 namespace App\Utils\Cart;
 
 use App\Produit;
-
+use Illuminate\Session\SessionManager;
+use Illuminate\Support\Facades\Log;
 
 class Cart
 {
     protected $cart;
+    private $sessionManager;
 
-    public function __construct()
+    public function __construct(Cart $c = null, SessionManager $sessionManager = null)
     {
+        $this->cart = $c;
+        $this->sessionManager = $sessionManager;
     }
 
     public function add(Produit $produit): void
@@ -28,6 +32,7 @@ class Cart
             $this->cart[] = $produit;
         }
         session()->put('cart', $this->cart);
+        Log::warning(session()->get('cart'));
     }
     public function Countproduit(): int
     {

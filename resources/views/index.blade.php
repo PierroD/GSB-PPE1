@@ -38,7 +38,7 @@
       @foreach($popularKits as $popKit)
       <div>
         <div
-          class="uk-card uk-card-large uk-box-shadow-hover-large uk-card-default uk-margin-small-left uk-margin-small-right uk-margin-small-bottom ">
+          class="uk-card uk-card-large uk-box-shadow-hover-large uk-border-rounded uk-card-default uk-margin-small-left uk-margin-small-right uk-margin-small-bottom ">
           <div class="uk-card-media-top uk-text-center">
             @if(isset($popKit->images[0]))
             <img src="{{ $popKit->images[0]->name }}" style="width:300; height:176" class="uk-margin-medium-bottom"

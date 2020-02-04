@@ -49,17 +49,16 @@ Route::group(['prefix' => 'list'], function () {
 Route::get('/login', function () {
     return view('login');
 });
-Route::post('/login', 'ConnectionController@connection');
+Route::post('/login', 'ConnectionController@setSignin');
 
 // Register \\
-
 Route::get('register', function () {
     return view('register');
 });
-Route::post('/register', 'ConnectionController@register');
+Route::post('/register', 'ConnectionController@setRegister');
 
 // Disconnect \\
-Route::get('/disconnect', 'ConnectionController@logout');
+Route::get('/disconnect', 'ConnectionController@setLogout');
 
 
 Route::get('profil', function () {
@@ -69,8 +68,6 @@ Route::get('profil', function () {
 Route::get('createKit', function () {
     return view('createKit');
 });
-
-
 
 
 

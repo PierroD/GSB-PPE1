@@ -16,14 +16,16 @@ class CartServiceProvider extends ServiceProvider
     public function register()
     {
         $cart = session()->get('cart');
-        $this->app->singleton(Cart::class, function ($app) {
-            if (isset($cart)) {
+        Log::info('inprovider '.$cart);
+         if (isset($cart)) {
                 return $cart;
             } else {
+        $this->app->singleton(Cart::class, function ($app) {
                 Log::info("Creating Cart");
                 return new Cart();
-            }
         });
+    }
+
     }
 
     /**
