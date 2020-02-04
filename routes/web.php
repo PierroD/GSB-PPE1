@@ -20,7 +20,6 @@ Route::get('/', 'ProduitController@getIndex'); //index
 
 Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{1,}"); //Un Kit
 
-
 Route::group(['prefix' => 'list'], function () {
     // Tous les kits et societies \\
     Route::get('/', 'UserController@getAll'); //tout
@@ -43,22 +42,29 @@ Route::group(['prefix' => 'list'], function () {
     });
 });
 
-
+Route::group(['prefix' => 'shoppingcart'], function () {
+    Route::get('/', 'ShoppingController@getIndex');
+    Route::get('/add/{id}', 'ShoppingController@add');
+    Route::get('/delete/{id}', 'ShoppingController@delete');
+    Route::get('/empty', 'ShoppingController@empty');
+});
 
 // Login \\
 Route::get('/login', function () {
     return view('login');
 });
-Route::post('/login', 'ConnectionController@setSignin');
+Route::post('/login', 'AuthenticationController@setSignin');
 
 // Register \\
 Route::get('register', function () {
     return view('register');
 });
-Route::post('/register', 'ConnectionController@setRegister');
+Route::post('/register', 'AuthenticationController@setRegister');
 
 // Disconnect \\
-Route::get('/disconnect', 'ConnectionController@setLogout');
+Route::get('/disconnect', 'AuthenticationController@setLogout');
+
+
 
 
 Route::get('profil', function () {
@@ -70,9 +76,4 @@ Route::get('createKit', function () {
 });
 
 
-
-Route::get('cart', function () {
-
-    return view('cart');
-});
 Route::get('test', 'TestController@test1');

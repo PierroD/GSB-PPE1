@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         App\Repositories\BackendServiceProvider::class,
         App\Providers\CartServiceProvider::class,
+        Darryldecode\Cart\CartServiceProvider::class
 
     ],
 
@@ -230,6 +231,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Cart' => Darryldecode\Cart\Facades\CartFacade::class
     ],
 
 ];

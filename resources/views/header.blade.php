@@ -23,8 +23,9 @@
     </div>
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
-        <a href="/cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
-            disabled>2</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
+        <a href="/shoppingcart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
+            disabled>{{ Cart::getTotalQuantity() }}</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart"
+            offset="100"></span></a>
       </ul>
     </div>
   </nav>
@@ -49,9 +50,10 @@
           </div>
         </li>
         <li class="uk-nav-header uk-text-danger">Panier</li>
-        <a href="/cart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top uk-text-danger"
-            disabled>2</span><span class="uk-icon-button uk-alert-primary uk-text-danger" uk-icon="cart"
-            offset="100"></span></a>
+        <a href="/shoppingcart" class="uk-margin-small-right"><span
+            class="uk-badge uk-text-small uk-text-top uk-text-danger"
+            disabled>{{ Cart::getTotalQuantity() }}</span><span class="uk-icon-button uk-alert-primary uk-text-danger"
+            uk-icon="cart" offset="100"></span></a>
         <li class="uk-nav-divider"></li>
         @if(Auth::check()==true)
         <li class="uk-margin-medium-bottom uk-margin-medium-top">

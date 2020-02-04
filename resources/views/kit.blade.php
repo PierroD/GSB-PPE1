@@ -77,7 +77,8 @@
                         </div>
                     </div>
                     <div class="uk-flex uk-flex-right">
-                        <a class="uk-button uk-button-secondary uk-border-rounded">
+                        <a class="uk-button uk-button-secondary uk-border-rounded"
+                            href="/shoppingcart/add/{{ $kit->id }}">
                             <i class="fas fa-cart-plus uk-margin-small-right"></i> Ajouter</a>
                     </div>
                 </div>
