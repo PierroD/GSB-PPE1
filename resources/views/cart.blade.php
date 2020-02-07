@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/material.css">
+
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -16,10 +16,10 @@
         <a class="uk-button uk-button-primary uk-border-rounded" href="/login">Se connecter</a>
     </div>
     @else
-    <div class="uk-container-small uk-margin-auto uk-margin-medium-top uk-card uk-card-default uk-card-small uk-border-rounded uk-child-width-2-1"
+    <div class="uk-container-small uk-margin-auto uk-margin-medium-top uk-card uk-card-default uk-card-small uk-border-rounded uk-child-width-1-1@s uk-child-width-1-2@m"
         uk-grid>
         <div>
-            <div class="uk-card-header uk-grid-collapse uk-child-width-1-3 uk-margin" uk-grid>
+            <div class="uk-card-header uk-grid-collapse uk-child-width-1-4 uk-margin" uk-grid>
                 <div>
                     <p class="uk-text-center"> Produit </p>
                 </div>
@@ -29,6 +29,9 @@
                 </div>
                 <div>
                     <p class="uk-text-center"> Quantité </p>
+                </div>
+                <div class="uk-text-center">
+                    <a class=" uk-text-warning" href="/shoppingcart/empty"> Supprimer </a>
                 </div>
             </div>
             @if(isset($empty))
@@ -42,16 +45,16 @@
             @else
             @foreach($ItemsCollection as $Item)
             <div class="uk-card-body uk-text-center">
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-3 uk-margin uk-border-rounded"
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-4 uk-margin uk-border-rounded"
                     uk-grid>
                     <div class="uk-card-body">
                         <div>
-                            <p> {{ $Item->name }} </p>
+                        <a class="uk-text-small uk-text-emphasis" href="/society/kit/{{ $Item->id }}"> {{ $Item->name }} </a>
                         </div>
                     </div>
                     <div class="uk-card-body">
                         <div>
-                            <p> {{ $Item->price }}</p>
+                            <p> {{ str_replace(".",",",$Item->price) }}</p>
                         </div>
                     </div>
                     <div class="uk-card-body">
@@ -59,12 +62,21 @@
                             <p> {{ $Item->quantity }} </p>
                         </div>
                     </div>
+                    <div class="uk-card-body">
+                        <div>
+                        <a class="uk-text-warning" href="/shoppingcart/delete/{{ $Item->id }}" uk-icon="trash"></a>
+                        </div>
+                    </div>
                 </div>
             </div>
             @endforeach
         </div>
-        <div class="uk-card-body uk-text-center uk-column-1-2">
-            <p class="uk-text-bold uk-text-bottom">Total : {{ \Cart::getSubTotal() }}€</p>
+        <div class="uk-card-body uk-text-center">
+            @foreach($ItemsCollection as $Item)
+            <p class="uk-small-text">{{ $Item->name}} : {{ str_replace(".",",",$Item->price) }} x {{ $Item->quantity }} = {{ str_replace(".",",",$Item->price * $Item->quantity) }}€</p>
+            @endforeach
+            <hr>
+            <p class="uk-text-bold uk-text-bottom">Total : {{ str_replace(".",",", $CartTotalPrice) }}€</p>
             <button class="uk-button uk-button-primary uk-border-rounded">Payer</button>
         </div>
         @endif

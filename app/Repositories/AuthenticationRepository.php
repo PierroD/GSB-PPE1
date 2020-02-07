@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 use App\User;
+use Darryldecode\Cart\Cart;
 use App\Http\Requests\Auth\RegisterRequest;
 
 class AuthenticationRepository implements AuthenticationRepositoryInterface
@@ -30,6 +31,7 @@ class AuthenticationRepository implements AuthenticationRepositoryInterface
             $mail = $request->get('mail');
             $mdpconnect = $request->get('password');
             if (Auth::attempt(['mail' => $mail, 'password' => $mdpconnect]) == true) {  
+                \Cart::session(Auth::User()->id);
                $bool = true;
             }
         } else {

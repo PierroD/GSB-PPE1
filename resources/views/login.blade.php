@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/material.css">
+
 <!DOCTYPE html>
 <html lang="en">
 @include("header")

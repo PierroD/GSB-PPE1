@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/material.css">
+
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -64,7 +64,7 @@
                 </div>
                 @endif
                 <!-- compteur de DL + Boutton pour DL -->
-                <div class="uk-column-1-2 uk-margin-small-bottom">
+                <div class="uk-child-width-1-2@m uk-child-width-1-1@s uk-margin-small-bottom">
                     <div>
                         <div class="uk-column-1-2">
                             <div>
@@ -76,10 +76,20 @@
                             </div>
                         </div>
                     </div>
-                    <div class="uk-flex uk-flex-right">
-                        <a class="uk-button uk-button-secondary uk-border-rounded"
-                            href="/shoppingcart/add/{{ $kit->id }}">
-                            <i class="fas fa-cart-plus uk-margin-small-right"></i> Ajouter</a>
+                    <div class="uk-flex uk-child-width-1-2@m uk-child-width-1-1@s">
+                        
+                            <a  class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-right"
+                    id="add-cart" href="/shoppingcart/add/{{ $kit->id }}/">
+                  
+                            <i class="fas fa-cart-plus uk-margin-small-right"></i> Ajouter
+                        </a>
+                      
+                        <select id="quantity"class="uk-select uk-width-auto uk-border-rounded" uk-tooltip="title: Quantity; pos: top-center">
+                            <option value="1">1</option>
+                            <option value="10">10</option>
+                            <option value="100">100</option>
+                            <option value="1000">1000</option>
+                        </select>
                     </div>
                 </div>
                 <!-- Patch Note-->
@@ -180,3 +190,13 @@
 </body>
 
 </html>
+
+<script>
+    const link = document.getElementById("add-cart");
+    link.addEventListener('click', event => {
+       var quantityElt = document.getElementById("quantity");
+       var quantityValue = quantityElt.options[quantityElt.selectedIndex].value; 
+       var UrlElt = link.href;
+        link.href += quantityValue;
+    });
+</script>

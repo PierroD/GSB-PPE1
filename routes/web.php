@@ -44,7 +44,7 @@ Route::group(['prefix' => 'list'], function () {
 
 Route::group(['prefix' => 'shoppingcart'], function () {
     Route::get('/', 'ShoppingController@getIndex');
-    Route::get('/add/{id}', 'ShoppingController@add');
+    Route::get('/add/{id}/{quantity}', 'ShoppingController@add');
     Route::get('/delete/{id}', 'ShoppingController@delete');
     Route::get('/empty', 'ShoppingController@empty');
 });
