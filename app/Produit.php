@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Produit extends Model
 {
-    protected $table = "produit";
+    protected $table = "produits";
     protected $primaryKey = "id";
-    protected $fillable = ["user_id", "title", "composition", "description", "grade", "version", "price", "logo", "purchase_number"];
+    protected $fillable = ["company_id", "title", "composition", "description", "grade", "version", "price", "logo", "purchase_number"];
 
     public $timestamps = false;
     public function society()

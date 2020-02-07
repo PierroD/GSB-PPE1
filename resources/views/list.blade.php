@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -46,6 +45,7 @@
         </div>
     </div>
     @foreach($all as $client)
+    @if(!empty(count($client->kits)))
     <div class="uk-container uk-margin-small-right uk-margin-medium-top">
         <a class="uk-text-italic uk-text-success uk-text-capitalize" href="/society/{{ $client->id }}">
             <span>@</span>{{ $client->company }}
@@ -70,6 +70,7 @@
             @endforeach
         </tbody>
     </table>
+    @endif
     @endforeach
 
     <!-- fin du tableau -->
