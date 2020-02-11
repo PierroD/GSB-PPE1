@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -34,7 +33,6 @@
     <div
       class="uk-grid-collapse uk-child-width-1-3@xl uk-child-width-1-1@s uk-child-width-1-3@m uk-grid uk-margin-small-left uk-margin-small-right uk-container uk-margin-auto uk-margin-medium-bottom"
       uk-gird="">
-      <!-- TODO mettre une boucle foreach -->
       @foreach($popularKits as $popKit)
       <div>
         <div
@@ -88,7 +86,57 @@
       </h3>
     </div>
     <div class="uk-text-right uk-margin-medium-right">
-      <button class="uk-button uk-button-danger uk-border-rounded">Plus</button>
+      <a class="uk-button uk-button-danger uk-border-rounded" href="list/kits/orderBy/lastest">Plus</a>
+    </div>
+  </div>
+  <!-- bandeau avec les applis -->
+  <div class="uk-margin-medium-top">
+    <div
+      class="uk-grid-collapse uk-child-width-1-3@xl uk-child-width-1-1@s uk-child-width-1-3@m uk-grid uk-margin-small-left uk-margin-small-right uk-container uk-margin-auto uk-margin-medium-bottom"
+      uk-gird="">
+      @foreach($newKits as $newKit)
+      <div>
+        <div
+          class="uk-card uk-card-large uk-box-shadow-hover-large uk-border-rounded uk-card-default uk-margin-small-left uk-margin-small-right uk-margin-small-bottom ">
+          <div class="uk-card-media-top uk-text-center">
+            @if(isset($newKit->images[0]))
+            <img src="{{ $newKit->images[0]->name }}" style="width:300; height:176" class="uk-margin-medium-bottom"
+              alt="">
+            @else
+            <div class="uk-container uk-margin-medium-bottom ">
+              <div
+                class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto">
+                <h4 class="uk-text-italic uk-text-muted">Pas d'image disponible</h4>
+                <i class="fas fa-box-open fa-3x"></i>
+              </div>
+            </div>
+            @endif
+          </div>
+          <div class="uk-card-body">
+            <div class="uk-card-title uk-text-center"><a class="uk-button uk-button-text uk-button-large"
+                href="society/kit/{{ $newKit->id }}">{{ $newKit->title }}</a>
+            </div>
+          </div>
+          <div class="uk-card-footer">
+            <div class="uk-column-1-2">
+              <div class="uk-text-left">
+                <p>
+                  {{ str_replace(".",",",$newKit->grade) }}<i
+                    class="fas fa-star uk-text-primary uk-margin-small-left"></i>
+                </p>
+              </div>
+              <div class="uk-text-right">
+                <p>
+                  {{ str_replace(".",",",$newKit->price) }} €
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      @endforeach
+      <!-- fin de la boucle foreach pour applis-->
+
     </div>
   </div>
 

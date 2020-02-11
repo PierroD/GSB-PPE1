@@ -1,9 +1,8 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
 
-<title>Kit | {{ $kit->title }} par {{ $kit->society->company }}</title>
+<title>Kit | {{ $kit->title }} par {{ $kit->society->name }}</title>
 
 <body>
 
@@ -21,10 +20,8 @@
                     <div class="uk-width-expand">
                         <h3 class="uk-card-title uk-margin-remove-bottom">{{ $kit->title }}</h3>
                         <p class="uk-text-meta uk-margin-remove-top uk-margin-remove-bottom">
-                            {{ $kit->society->company }}</p>
-                        <label
-                            class="uk-text-meta uk-width-auto uk-margin-remove-top uk-alert-warning">{{ $kit->society->last_name }}
-                            {{ $kit->society->first_name }}</label>
+                            {{ $kit->society->name }}</p>
+
                     </div>
                 </div>
             </div>
@@ -77,14 +74,15 @@
                         </div>
                     </div>
                     <div class="uk-flex uk-child-width-1-2@m uk-child-width-1-1@s">
-                        
-                            <a  class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-right"
-                    id="add-cart" href="/shoppingcart/add/{{ $kit->id }}/">
-                  
+
+                        <a class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-right" id="add-cart"
+                            href="/shoppingcart/add/{{ $kit->id }}/">
+
                             <i class="fas fa-cart-plus uk-margin-small-right"></i> Ajouter
                         </a>
-                      
-                        <select id="quantity"class="uk-select uk-width-auto uk-border-rounded" uk-tooltip="title: Quantity; pos: top-center">
+
+                        <select id="quantity" class="uk-select uk-width-auto uk-border-rounded"
+                            uk-tooltip="title: Quantity; pos: top-center">
                             <option value="1">1</option>
                             <option value="10">10</option>
                             <option value="100">100</option>

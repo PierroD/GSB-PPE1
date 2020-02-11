@@ -8,12 +8,12 @@ class Produit extends Model
 {
     protected $table = "produits";
     protected $primaryKey = "id";
-    protected $fillable = ["company_id", "title", "composition", "description", "grade", "version", "price", "logo", "purchase_number"];
+    protected $fillable = ["company_id", "title", "composition", "description", "grade", "version", "price", "logo"];
 
     public $timestamps = false;
     public function society()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id');
+        return $this->belongsTo(Company::class, 'company_id', 'id');
     }
     public function images()
     {

@@ -8,7 +8,7 @@ class Commentaire extends Model
 {
     protected $table = "commentaires";
     protected $primaryKey = "id";
-    protected $fillable = ["user_id", "produit_id", "build_date", "note", "text"];
+    protected $fillable = ["user_id", "produit_id", "build_date", "note", "description"];
 
     public $timestamps = false;
 

@@ -14,7 +14,6 @@ class AuthenticationRepository implements AuthenticationRepositoryInterface
 {
     public function register(RegisterRequest $request)
     {
-
         if (Auth::check() == false) {
             $request['password'] = Hash::make($request['password']);
             User::create($request->all());

@@ -24,8 +24,8 @@
     <div class="uk-navbar-right">
       <ul class="uk-navbar-nav">
         <a href="/shoppingcart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
-            disabled>@if(Auth::check()==true){{ Cart::session(Auth::User()->id)->getTotalQuantity() }}@else 0 @endif</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart"
-            offset="100"></span></a>
+            disabled>@if(Auth::check()==true){{ Cart::session(Auth::User()->id)->getTotalQuantity() }}@else 0
+            @endif</span><span class="uk-icon-button uk-alert-primary" uk-icon="cart" offset="100"></span></a>
       </ul>
     </div>
   </nav>
@@ -52,8 +52,9 @@
         <li class="uk-nav-header uk-text-danger">Panier</li>
         <a href="/shoppingcart" class="uk-margin-small-right"><span
             class="uk-badge uk-text-small uk-text-top uk-text-danger"
-            disabled>@if(Auth::check()==true){{ Cart::session(Auth::User()->id)->getTotalQuantity() }}@else 0 @endif</span><span class="uk-icon-button uk-alert-primary uk-text-danger"
-            uk-icon="cart" offset="100"></span></a>
+            disabled>@if(Auth::check()==true){{ Cart::session(Auth::User()->id)->getTotalQuantity() }}@else 0
+            @endif</span><span class="uk-icon-button uk-alert-primary uk-text-danger" uk-icon="cart"
+            offset="100"></span></a>
         <li class="uk-nav-divider"></li>
         @if(Auth::check()==true)
         <li class="uk-margin-medium-bottom uk-margin-medium-top">
@@ -63,9 +64,8 @@
           <div uk-dropdown="pos: bottom-justify; mode: click">
             <ul class="uk-nav uk-dropdown-nav">
               <li class="uk-active"><a class="uk-text-danger" href="#">Liste des options</a></li>
-
-              <li><a href="/list/kits"> <i class="far fa-user uk-text-danger"></i> Voir mon profil</a></li>
-              <li><a href="/list/societies"><i class="fas fa-shopping-cart uk-text-danger"></i> Voir mes achats</a></li>
+              <li><a href="/profil"> <i class="far fa-user uk-text-danger"></i> Voir mon profil</a></li>
+              <li><a href="/buys"><i class="fas fa-shopping-cart uk-text-danger"></i> Voir mes achats</a></li>
               <li class="uk-nav-divider"></li>
               <li class="uk-margin-small-top"><a href="/disconnect"
                   class="uk-button uk-button-danger uk-button-small uk-border-rounded uk-margin-small-right uk-text-light">Deconnexion</a>

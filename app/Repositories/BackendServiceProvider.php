@@ -21,5 +21,13 @@ class BackendServiceProvider extends ServiceProvider
             'App\Repositories\AuthenticationRepositoryInterface',
             'App\Repositories\AuthenticationRepository'
         );
+        $this->app->bind(
+            'App\Repositories\CompanyRepositoryInterface',
+            'App\Repositories\CompanyRepository'
+        );
+        $this->app->bind(
+            'App\Repositories\RolesRepositoryInterface',
+            'App\Repositories\RolesRepository'
+        );
     }
 }

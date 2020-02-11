@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 
 
-class ClientTableSeeder extends Seeder
+class UserTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,16 +15,16 @@ class ClientTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('user')->insert([
+        DB::table('users')->insert([
+
+            'company_id' => 1,
+            'role_id' => 1,
             'last_name' => Str::random(10),
             'first_name' => Str::random(10),
-            'company' => Str::random(10),
             'gender' => Str::random(1),
             'birth_date' =>  Carbon::create('1999', '01', '01'),
             'mail' => Str::random(10) . '@gmail.com',
             'password' => bcrypt('password'),
-            'money' => '6',
-            'fidelity' => Carbon::create('2010', '01', '01')
         ]);
     }
 }

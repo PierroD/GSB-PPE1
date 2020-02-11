@@ -22,7 +22,7 @@ Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{
 
 Route::group(['prefix' => 'list'], function () {
     // Tous les kits et societies \\
-    Route::get('/', 'UserController@getAll'); //tout
+    Route::get('/', 'CompanyController@getList'); //tout
 
     // Kits \\
     Route::group(['prefix' => 'kits'], function () {
@@ -32,6 +32,7 @@ Route::group(['prefix' => 'list'], function () {
         Route::get('/orderBy/priceAsc', 'ProduitController@getAllKitbyPriceAsc'); //Kits orderby PrixAsc
         Route::get('/orderBy/nameDesc', 'ProduitController@getAllKitbyNameDesc'); //Kit orderby NameDesc
         Route::get('/orderBy/nameAsc', 'ProduitController@getAllKitbyNameAsc');  //Kit orderby NameAsc
+        Route::get('/orderBy/lastest', 'ProduitController@getAllKitbyLastest');  //Kit orderby Lastest
     });
 
     Route::group(['prefix' => 'societies'], function () {
@@ -56,20 +57,14 @@ Route::get('/login', function () {
 Route::post('/login', 'AuthenticationController@setSignin');
 
 // Register \\
-Route::get('register', function () {
-    return view('register');
-});
+Route::get('register', 'CompanyController@getCompanies');
 Route::post('/register', 'AuthenticationController@setRegister');
 
 // Disconnect \\
 Route::get('/disconnect', 'AuthenticationController@setLogout');
 
 
-
-
-Route::get('profil', function () {
-    return view('profil');
-});
+Route::get('/profil', 'RolesController@getRoleProfile');
 
 Route::get('createKit', function () {
     return view('createKit');

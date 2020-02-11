@@ -14,12 +14,11 @@ class CommentaireTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('commentaire')->insert([
-            'user_id' => '4',
+        DB::table('commentaires')->insert([
+            'user_id' => '1',
             'produit_id' => '1',
-            'build_date' =>  Carbon::create('1999', '01', '01'),
             'note' => '2.5',
-            'text' => Str::random(20)
+            'description' => Str::random(20)
         ]);
     }
 }

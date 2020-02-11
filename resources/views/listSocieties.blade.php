@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -55,7 +54,7 @@
             <tr>
                 <td>{{ $society->id }}</td>
                 <td class="uk-text-center"><a class="uk-text-italic  uk-text-capitalize uk-button-text"
-                        href="/society/{{ $society->id }}">{{ $society->company }}</a></td>
+                        href="/society/{{ $society->id }}">{{ $society->company->name }}</a></td>
             </tr>
             @endforeach
         </tbody>

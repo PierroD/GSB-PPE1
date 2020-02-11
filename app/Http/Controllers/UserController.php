@@ -36,4 +36,5 @@ class UserController extends Controller
         $title = "Les Laboratoires par nom Décroissant";
         return view('listSocieties', compact('societies', 'title'));
     }
+
 }

@@ -44,11 +44,11 @@
             </div>
         </div>
     </div>
-    @foreach($all as $client)
-    @if(!empty(count($client->kits)))
+    @foreach($all as $company)
+    @if(!empty(count($company->products)))
     <div class="uk-container uk-margin-small-right uk-margin-medium-top">
-        <a class="uk-text-italic uk-text-success uk-text-capitalize" href="/society/{{ $client->id }}">
-            <span>@</span>{{ $client->company }}
+        <a class="uk-text-italic uk-text-success uk-text-capitalize" href="/society/{{ $company->id }}">
+            <span>@</span>{{ $company->name }}
         </a>
     </div>
     <table class="uk-table uk-table-hover uk-table-divider uk-container-small uk-margin-auto">
@@ -60,12 +60,12 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($client->kits as $kit)
+            @foreach($company->products as $product)
             <tr>
-                <td><a href="/society/kit/{{ $kit->id }}"
-                        class="uk-text-emphasis uk-button uk-button-text">{{ $kit->title }}</a></td>
-                <td>{{ str_replace(".",",",$kit->grade) }} <i class="fas fa-star uk-text-primary"></i></td>
-                <td class="uk-text-right">{{ $kit->price }} € </td>
+                <td><a href="/society/kit/{{ $product->id }}"
+                        class="uk-text-emphasis uk-button uk-button-text">{{ $product->title }}</a></td>
+                <td>{{ str_replace(".",",",$product->grade) }} <i class="fas fa-star uk-text-primary"></i></td>
+                <td class="uk-text-right">{{ $product->price }} € </td>
             </tr>
             @endforeach
         </tbody>

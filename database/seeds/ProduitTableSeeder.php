@@ -14,8 +14,8 @@ class ProduitTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('produit')->insert([
-            'user_id' => '1',
+        DB::table('produits')->insert([
+            'company_id' => '1',
             'title' => Str::random(10),
             'composition' => Str::random(10),
             'description' => Str::random(10),
@@ -23,7 +23,6 @@ class ProduitTableSeeder extends Seeder
             'version' => Str::random(10),
             'price' => '8.5',
             'logo' => Str::random(10),
-            'purchase_number' => '10',
         ]);
     }
 }

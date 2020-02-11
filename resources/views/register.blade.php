@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -47,9 +46,12 @@
           </div>
           <div class="uk-margin">
             <div class="uk-inline">
-              <span class="uk-form-icon uk-icon" uk-icon="icon: user"></span>
-              <input class="uk-input" required="" placeholder="Entreprise" type="text" value="{{ old('company') }}"
-                name="company">
+              Société
+              <select class="uk-select uk-width-auto uk-border-rounded" name="company_id">
+                @foreach($companies as $company)
+                <option required="" value="{{ $company->id }}">{{ $company->name }}</option>
+                @endforeach
+              </select>
             </div>
           </div>
           <div class="uk-margin">

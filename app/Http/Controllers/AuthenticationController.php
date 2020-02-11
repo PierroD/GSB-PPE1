@@ -22,7 +22,7 @@ class AuthenticationController extends Controller
 
     public function setRegister(RegisterRequest $request)
     {
-
+        
         if($this->repositoryAuth->register($request) == true)
         {
             return view('login');

@@ -24,13 +24,14 @@ class RegisterRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
+            'company_id' => 'required|max:255',
             'last_name' => 'required|max:255',
             'first_name' => 'required|max:255',
-            'company' => 'required|max:255',
             'gender' => 'required|in:M,W,O',
             'birth_date' => 'required',
-            'mail' => 'required|email|unique:user|max:255',
+            'mail' => 'required|email|unique:users|max:255',
             'password' => 'required|confirmed|max:255',
         ];
     }

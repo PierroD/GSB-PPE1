@@ -17,7 +17,7 @@ class User extends Authenticatable
      */
     protected $table = "users";
     protected $primaryKey = "id";
-    protected $fillable = ["last_name", "company_id", "last_name","first_name", "gender", "birth_date", "mail", "password", "money", "fidelity"];
+    protected $fillable = ["company_id", "role_id", "last_name","first_name", "gender", "birth_date", "mail", "password", "money", "fidelity"];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -39,8 +39,12 @@ class User extends Authenticatable
 
     public $timestamps = false;
 
-    public function kits()
+    public function company()
     {
-        return $this->hasMany(Produit::class, 'user_id', 'id');
+        return $this->belongsTo(Company::class, 'company_id', 'id');
+    }
+    public function role()
+    {
+        return $this->hasOne(Roles::class, 'role_id', 'id');
     }
 }

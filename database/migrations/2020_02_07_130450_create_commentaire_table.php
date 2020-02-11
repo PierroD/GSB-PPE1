@@ -18,7 +18,7 @@ class CreateCommentaireTable extends Migration
             $table->integer('user_id')->unsigned()->index();
             $table->integer('produit_id')->unsigned()->index();
             $table->timestamp('build_date', 0)->useCurrent();
-            $table->float('note', 2,2);
+            $table->float('note', 8,2);
             $table->text('description');
 
         

@@ -34,13 +34,19 @@ class ProduitController extends Controller
     public function getIndex()
     {
         $popularKits = $this->repositoryProduit->getOrderBy('grade', 'desc')->take(3);
-        $newKits = $this->repositoryProduit->getNew(); //->take(3);
+        $newKits = $this->repositoryProduit->getOrderBy('created_at', 'desc')->take(3);
         return view('index', compact('popularKits', 'newKits'));
     }
     public function getAllKitbyGrade()
     {
         $kits = $this->repositoryProduit->getOrderBy('grade', 'desc');
         $title = "Les kits les mieux notés";
+        return view('listKits', compact('kits', 'title'));
+    }
+    public function getAllKitbyLastest()
+    {
+        $kits = $this->repositoryProduit->getOrderBy('created_at', 'desc');
+        $title = "Les kits les plus récent";
         return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceDesc()
