@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
@@ -17,28 +16,29 @@
         <div class="uk-grid-small uk-child-width-1-2" uk-grid>
             <div class="uk-margin-auto-vertical">
                 <div class="uk-text-left uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Type
-                        sélectionné <i class="fas fa-sort-down uk-margin-small-left"></i></a>
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize"
+                        type="button">@lang('listTable.selectType')<i
+                            class="fas fa-sort-down uk-margin-small-left"></i></a>
                     <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="/list/kits/">Les Kits</a></li>
-                            <li><a href="/list/societies">Les Laboratoires</a></li>
+                            <li><a href="/list/kits/">@lang('listTable.kits')</a></li>
+                            <li><a href="/list/societies">@lang('listTable.laboratories')</a></li>
                             <li class="uk-nav-divider"></li>
-                            <li><a href="/list/">Kits & Laboratoires</a></li>
+                            <li><a href="/list/">@lang('listTable.kitsAndLaboratories')</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="uk-margin-auto-vertical">
                 <div class="uk-text-right uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Trier par<i
-                            class="fas fa-sort-down uk-margin-small-left"></i></a>
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize"
+                        type="button">@lang('listTable.sortBy')<i class="fas fa-sort-down uk-margin-small-left"></i></a>
                     <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="/list/kits/orderBy/priceDesc">Prix Décroissant</a></li>
-                            <li><a href="/list/kits/orderBy/priceAsc">Prix Croissant</a></li>
-                            <li><a href="/list/kits/orderBy/nameDesc">Nom Décroissant</a></li>
-                            <li><a href="/list/kits/orderBy/nameAsc">Nom Croissant</a></li>
+                            <li><a href="/list/kits/orderBy/priceDesc">@lang('listTable.priceDesc')</a></li>
+                            <li><a href="/list/kits/orderBy/priceAsc">@lang('listTable.priceAsc')</a></li>
+                            <li><a href="/list/kits/orderBy/nameDesc">@lang('listTable.nameDesc')</a></li>
+                            <li><a href="/list/kits/orderBy/nameAsc">@lang('listTable.nameAsc')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -48,9 +48,9 @@
     <table class="uk-table uk-table-hover uk-table-divider uk-container-small uk-margin-auto">
         <thead>
             <tr class="text-center">
-                <th>Nom du Kit</th>
-                <th>Note</th>
-                <th class="uk-text-right">Prix</th>
+                <th>@lang('listTable.kitName')</th>
+                <th>@lang('listTable.kitNote')</th>
+                <th class="uk-text-right">@lang('listTable.kitPrice')</th>
             </tr>
         </thead>
         <tbody>

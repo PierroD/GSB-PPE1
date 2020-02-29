@@ -1,21 +1,20 @@
-
 <!DOCTYPE html>
 <html lang="en">
 @include("header")
 
 <!--nom de la page -->
-<title>Créer un kit</title>
+<title>@lang('createKit.title')</title>
 
 <body>
     <div class="uk-container uk-margin-vertical-auto uk-card uk-card-default uk-border-rounded uk-margin-medium-top">
         <div class="uk-card-header">
-            <h3 class="uk-text-center"><u>Poster un produit</u></h3>
+            <h3 class="uk-text-center"><u>@lang('createKit.postProduct')</u></h3>
         </div>
         <div class="uk-card-body">
             <!-- Nom d'un produit -->
             <div class="uk-column-1-2 uk-margin-auto">
                 <div class="uk-text-center">
-                    <p> Nom du produit</p>
+                    <p> @lang('createKit.productName')</p>
                 </div>
                 <div class="uk-margin-auto">
                     <input class="uk-input uk-border-rounded" type="text" placeholder="Saisir le nom du produit...">
@@ -25,7 +24,7 @@
             <!-- Composition d'un produit -->
             <div class="uk-column-1-2 uk-margin-auto">
                 <div class="uk-text-center">
-                    <p> Composition du produit</p>
+                    <p> @lang('createKit.productComposition')</p>
                 </div>
                 <div class="uk-margin-auto">
                     <textarea class="uk-textarea" rows="5" placeholder="Composition"></textarea>
@@ -35,7 +34,7 @@
             <!-- Description d'un produit -->
             <div class="uk-column-1-2 uk-margin-auto">
                 <div class="uk-text-center">
-                    <p> Description du produit</p>
+                    <p> @lang('createKit.productDescription')</p>
                 </div>
                 <div class="uk-margin-auto">
                     <textarea class="uk-textarea" rows="5" placeholder="Description"></textarea>
@@ -45,7 +44,7 @@
             <!-- Choisir le prix d'un produit -->
             <div class="uk-column-1-2 uk-margin-auto">
                 <div class="uk-text-center">
-                    <p> Prix du produit</p>
+                    <p> @lang('createKit.productPrice')</p>
                 </div>
                 <div class="uk-margin-auto">
                     <input class="uk-input uk-border-rounded" type="text" placeholder="Prix du produit en euro...">
@@ -53,14 +52,14 @@
             </div>
             <!--upload images-->
             <div>
-                <h5 class="uk-heading-line uk-text-center uk-margin-medium-top uk-margin-medium-bottom"><span>Choisir
-                        des images </span></h5>
+                <h5 class="uk-heading-line uk-text-center uk-margin-medium-top uk-margin-medium-bottom">
+                    <span>@lang('createKit.chooseImages')</span></h5>
                 <div class="js-upload uk-placeholder uk-text-center">
                     <span uk-icon="icon: cloud-upload"></span>
-                    <span class="uk-text-middle">Attach binaries by dropping them here or</span>
+                    <span class="uk-text-middle">@lang('createKit.attachFiles')</span>
                     <div uk-form-custom>
                         <input type="file" multiple>
-                        <span class="uk-link">selecting one</span>
+                        <span class="uk-link">@lang('createKit.selectOne')</span>
                     </div>
                 </div>
 
@@ -129,8 +128,7 @@
             </div>
             <hr class="uk-margin-medium-top uk-margin-medium-bottom">
             <button
-                class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-border-rounded">Poster</button>
-
+                class="uk-button uk-button-primary uk-width-1-1 uk-margin-small-bottom uk-border-rounded">@lang('createKit.post')</button>
         </div>
     </div>
 </body>

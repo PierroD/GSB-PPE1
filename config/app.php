@@ -80,7 +80,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'fr',
 
     /*
     |--------------------------------------------------------------------------
@@ -176,7 +176,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        App\Repositories\BackendServiceProvider::class,
+        App\Providers\BackendServiceProvider::class,
         App\Providers\CartServiceProvider::class,
         Darryldecode\Cart\CartServiceProvider::class
 

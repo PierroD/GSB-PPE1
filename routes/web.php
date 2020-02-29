@@ -37,9 +37,9 @@ Route::group(['prefix' => 'list'], function () {
 
     Route::group(['prefix' => 'societies'], function () {
         // Societies \\
-        Route::get('/', 'UserController@getAllSociety'); // Societes
-        Route::get('/orderBy/nameDesc', 'UserController@getAllKitbyNameDesc'); //Societes orderby NameDesc
-        Route::get('/orderBy/nameAsc', 'UserController@getAllKitbyNameAsc');  //Societes orderby NameAsc
+        Route::get('/', 'CompanyController@getAllSociety'); // Societes
+        Route::get('/orderBy/nameDesc', 'CompanyController@getAllLaboratorybyNameDesc'); //Societes orderby NameDesc
+        Route::get('/orderBy/nameAsc', 'CompanyController@getAllLaboratorybyNameAsc');  //Societes orderby NameAsc
     });
 });
 
@@ -66,7 +66,7 @@ Route::get('/disconnect', 'AuthenticationController@setLogout');
 
 Route::get('/profil', 'RolesController@getRoleProfile');
 
-Route::get('createKit', function () {
+Route::get('/createKit', function () {
     return view('createKit');
 });
 

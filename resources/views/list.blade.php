@@ -16,30 +16,24 @@
         <div class="uk-grid-small uk-child-width-1-2" uk-grid>
             <div class="uk-margin-auto-vertical">
                 <div class="uk-text-left uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Type
-                        sélectionné <i class="fas fa-sort-down uk-margin-small-left"></i></a>
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize"
+                        type="button">@lang('listTable.selectType')<i
+                            class="fas fa-sort-down uk-margin-small-left"></i></a>
                     <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="/list/kits/">Les Kits</a></li>
-                            <li><a href="/list/societies">Les Laboratoires</a></li>
+                            <li><a href="/list/kits/">@lang('listTable.kits')</a></li>
+                            <li><a href="/list/societies">@lang('listTable.laboratories')</a></li>
                             <li class="uk-nav-divider"></li>
-                            <li><a href="/list/">Kits & Laboratoires</a></li>
+                            <li><a href="/list/">@lang('listTable.kitsAndLaboratories')</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="uk-margin-auto-vertical">
                 <div class="uk-text-right uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Trier par<i
-                            class="fas fa-sort-down uk-margin-small-left"></i></a>
-                    <div uk-dropdown="pos: right-center; mode: click">
-                        <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="orderBy/priceDesc">Prix Décroissant</a></li>
-                            <li><a href="orderBy/priceAsc">Prix Croissant</a></li>
-                            <li><a href="orderBy/nameDesc">Nom Décroissant</a></li>
-                            <li><a href="orderBy/nameAsc">Nom Croissant</a></li>
-                        </ul>
-                    </div>
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize"
+                        type="button">@lang('listTable.sortBy')<i class="fas fa-sort-down uk-margin-small-left"
+                            disabled></i></a>
                 </div>
             </div>
         </div>

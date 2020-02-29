@@ -23,4 +23,8 @@ class CompanyRepository implements CompanyRepositoryInterface
     {
         Company::find($company_id)->update($company_id);
     }
+    public function getOrderBy($data, $type)
+    {
+        return Company::orderBy($data, $type)->get();
+    }
 }

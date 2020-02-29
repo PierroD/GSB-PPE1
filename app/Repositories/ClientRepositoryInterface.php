@@ -8,4 +8,5 @@ interface ClientRepositoryInterface
     public function all();
     public function delete($client_id);
     public function update($client_id, array $produit_data);
+    public function getOrderBy($data, $type);
 }

@@ -2,7 +2,7 @@
 <html lang="en">
 @include("header")
 
-<title>Kit | {{ $kit->title }} par {{ $kit->society->name }}</title>
+<title>Kit | {{ $kit->title }} by {{ $kit->society->name }}</title>
 
 <body>
 
@@ -43,8 +43,6 @@
                         </li>
                         @endforeach
                     </ul>
-
-
                     <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
                         uk-slider-item="previous"></a>
                     <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
@@ -55,7 +53,7 @@
                 <div class="uk-container uk-margin-medium-bottom ">
                     <div
                         class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto">
-                        <h4 class="uk-text-italic uk-text-muted">Pas d'images disponible</h4>
+                        <h4 class="uk-text-italic uk-text-muted">@lang('kit.noImage')</h4>
                         <i class="fas fa-box-open fa-3x"></i>
                     </div>
                 </div>
@@ -69,7 +67,7 @@
                             </div>
                             <div>
                                 <p><span class="uk-icon-button uk-alert-success"><i class="fas fa-euro-sign"></i></span>
-                                    {{ str_replace(".",",",$kit->price) }}€/unité </p>
+                                    {{ str_replace(".",",",$kit->price) }} @lang('kit.priceUnit')</p>
                             </div>
                         </div>
                     </div>
@@ -78,7 +76,7 @@
                         <a class="uk-button uk-button-secondary uk-border-rounded uk-margin-small-right" id="add-cart"
                             href="/shoppingcart/add/{{ $kit->id }}/">
 
-                            <i class="fas fa-cart-plus uk-margin-small-right"></i> Ajouter
+                            <i class="fas fa-cart-plus uk-margin-small-right"></i> @lang('kit.add')
                         </a>
 
                         <select id="quantity" class="uk-select uk-width-auto uk-border-rounded"
@@ -93,7 +91,7 @@
                 <!-- Patch Note-->
                 <div class="uk-alert-success uk-border-rounded">
                     <div class="uk-margin-medium-left">
-                        <p>Composition du kit : </br> {{ $kit->composition }} </p>
+                        <p> @lang('kit.kitComposition') : </br> {{ $kit->composition }} </p>
 
                     </div>
 
@@ -101,7 +99,7 @@
                 <!-- Desription rapide de l'app -->
                 <div class="uk-margin-medium-left">
                     <p class="uk-text-justify">
-                        <p>Description : <br /> {{ $kit->description }} </p>
+                        <p>@lang('kit.kitDescription') : <br /> {{ $kit->description }} </p>
                     </p>
                 </div>
             </div>
@@ -118,7 +116,7 @@
                             placeholder="Note sur 5">
                     </div>
                     <div class="uk-text-center">
-                        <a class="uk-button uk-button-primary uk-border-rounded">Poster</a>
+                        <a class="uk-button uk-button-primary uk-border-rounded">@lang('kit.post')</a>
                     </div>
                 </div>
                 @if(count($kit->comments) > 1)
@@ -176,7 +174,7 @@
                 <div class="uk-container uk-margin-medium-top ">
                     <div
                         class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-large uk-margin-auto">
-                        <h4 class="uk-text-italic uk-text-muted">Pas de commentaires disponible</h4>
+                        <h4 class="uk-text-italic uk-text-muted">@lang('kit.noComment')</h4>
                         <i class="fas fa-comment-slash fa-3x"></i>
                     </div>
                 </div>

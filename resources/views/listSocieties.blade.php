@@ -3,11 +3,11 @@
 @include("header")
 
 <!--nom de la page -->
-<title>Liste</title>
+<title>@lang('listSocieties.title')</title>
 
 <body>
     <!-- titre  -->
-    <h3 class="uk-text-center"><i class="far fa-file-alt uk-text-danger"></i> Les Laboratoires <i
+    <h3 class="uk-text-center"><i class="far fa-file-alt uk-text-danger"></i> {{ $title }} <i
             class="far fa-file-alt uk-text-danger"></i>
     </h3>
     <!-- fin du titre -->
@@ -16,26 +16,27 @@
         <div class="uk-grid-small uk-child-width-1-2" uk-grid>
             <div class="uk-margin-auto-vertical">
                 <div class="uk-text-left uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Type
-                        sélectionné <i class="fas fa-sort-down uk-margin-small-left"></i></a>
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize"
+                        type="button">@lang('listTable.selectType')<i
+                            class="fas fa-sort-down uk-margin-small-left"></i></a>
                     <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="/list/kits/">Les Kits</a></li>
-                            <li><a href="/list/societies">Les Laboratoires</a></li>
+                            <li><a href="/list/kits/">@lang('listTable.kits')</a></li>
+                            <li><a href="/list/societies">@lang('listTable.laboratories')</a></li>
                             <li class="uk-nav-divider"></li>
-                            <li><a href="/list/">Kits & Laboratoires</a></li>
+                            <li><a href="/list/">@lang('listTable.kitsAndLaboratories')</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="uk-margin-auto-vertical">
                 <div class="uk-text-right uk-margin-auto">
-                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize" type="button">Trier par<i
-                            class="fas fa-sort-down uk-margin-small-left"></i></a>
+                    <a class="uk-button uk-button-text uk-border-rounded uk-text-capitalize"
+                        type="button">@lang('listTable.sortBy')<i class="fas fa-sort-down uk-margin-small-left"></i></a>
                     <div uk-dropdown="pos: right-center; mode: click">
                         <ul class="uk-nav uk-dropdown-nav uk-text-center">
-                            <li><a href="/list/societies/orderBy/nameDesc">Nom Décroissant</a></li>
-                            <li><a href="/list/societies/orderBy/nameAsc">Nom Croissant</a></li>
+                            <li><a href="/list/societies/orderBy/nameDesc">@lang('listTable.nameDesc')</a></li>
+                            <li><a href="/list/societies/orderBy/nameAsc">@lang('listTable.nameAsc')</a></li>
                         </ul>
                     </div>
                 </div>
@@ -45,8 +46,8 @@
     <table class="uk-table uk-table-hover uk-table-divider uk-container-small uk-margin-auto">
         <thead>
             <tr class="text-center">
-                <th>id</th>
-                <th class="uk-text-center">Nom du laboratoire</th>
+                <th>@lang('listSocieties.laboratoryName')</th>
+                <th class="uk-text-center">@lang('listSocieties.laboratoryName')</th>
             </tr>
         </thead>
         <tbody>
@@ -54,7 +55,7 @@
             <tr>
                 <td>{{ $society->id }}</td>
                 <td class="uk-text-center"><a class="uk-text-italic  uk-text-capitalize uk-button-text"
-                        href="/society/{{ $society->id }}">{{ $society->company->name }}</a></td>
+                        href="/society/{{ $society->id }}">{{ $society->name }}</a></td>
             </tr>
             @endforeach
         </tbody>

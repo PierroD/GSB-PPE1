@@ -3,7 +3,7 @@
 @include("header")
 
 <!--nom de la page -->
-<title>Accueil</title>
+<title>@lang('index.title')</title>
 
 <body>
   <!-- bandeau temporaire pour mettre des pubs ou un petit msg-->
@@ -20,11 +20,11 @@
   <!--titre des type d'applis -->
   <div class="uk-text-left uk-margin-medium-left uk-margin-large-top uk-column-1-2">
     <div>
-      <h3 class="uk-text-left"><i class="far fa-star uk-text-danger"></i> Meilleurs produits <i
+      <h3 class="uk-text-left"><i class="far fa-star uk-text-danger"></i> @lang('index.bestProduct') <i
           class="far fa-star uk-text-danger"></i></h3>
     </div>
     <div class="uk-text-right uk-margin-medium-right">
-      <a class="uk-button uk-button-danger uk-border-rounded" href="list/kits/orderBy/grade">Plus</a>
+      <a class="uk-button uk-button-danger uk-border-rounded" href="list/kits/orderBy/grade">@lang('index.more')</a>
     </div>
   </div>
 
@@ -45,7 +45,7 @@
             <div class="uk-container uk-margin-medium-bottom ">
               <div
                 class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto">
-                <h4 class="uk-text-italic uk-text-muted">Pas d'image disponible</h4>
+                <h4 class="uk-text-italic uk-text-muted">@lang('index.NoImage')</h4>
                 <i class="fas fa-box-open fa-3x"></i>
               </div>
             </div>
@@ -81,12 +81,12 @@
 
   <div class="uk-text-left uk-margin-medium-left uk-margin-large-top uk-column-1-2">
     <div>
-      <h3 class="uk-text-left"><i class="fas fa-plus uk-text-danger"></i> Les nouveautés <i
+      <h3 class="uk-text-left"><i class="fas fa-plus uk-text-danger"></i> @lang('index.news') <i
           class="fas fa-plus uk-text-danger"></i>
       </h3>
     </div>
     <div class="uk-text-right uk-margin-medium-right">
-      <a class="uk-button uk-button-danger uk-border-rounded" href="list/kits/orderBy/lastest">Plus</a>
+      <a class="uk-button uk-button-danger uk-border-rounded" href="list/kits/orderBy/lastest">@lang('index.more')</a>
     </div>
   </div>
   <!-- bandeau avec les applis -->
@@ -106,7 +106,7 @@
             <div class="uk-container uk-margin-medium-bottom ">
               <div
                 class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto">
-                <h4 class="uk-text-italic uk-text-muted">Pas d'image disponible</h4>
+                <h4 class="uk-text-italic uk-text-muted">@lang('index.NoImage')</h4>
                 <i class="fas fa-box-open fa-3x"></i>
               </div>
             </div>

@@ -28,7 +28,7 @@ class ProduitController extends Controller
     public function getAllKit()
     {
         $kits = $this->repositoryProduit->all();
-        $title = "Les Kits";
+        $title = \Lang::get('listKits.allKits');
         return view('listKits', compact('kits', "title"));
     }
     public function getIndex()
@@ -40,37 +40,37 @@ class ProduitController extends Controller
     public function getAllKitbyGrade()
     {
         $kits = $this->repositoryProduit->getOrderBy('grade', 'desc');
-        $title = "Les kits les mieux notés";
+        $title = \Lang::get('listKits.gradeKits');
         return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyLastest()
     {
         $kits = $this->repositoryProduit->getOrderBy('created_at', 'desc');
-        $title = "Les kits les plus récent";
+        $title = \Lang::get('listKits.newKits');
         return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceDesc()
     {
         $kits = $this->repositoryProduit->getOrderBy('price', 'desc');
-        $title = "Les kits par prix décroissant";
+        $title = \Lang::get('listKits.descPriceKits');
         return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceAsc()
     {
         $kits = $this->repositoryProduit->getOrderBy('price', 'asc');
-        $title = "Les kits par prix Croissant";
+        $title = \Lang::get('listKits.ascPriceKits');
         return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyNameDesc()
     {
         $kits = $this->repositoryProduit->getOrderBy('title', 'desc');
-        $title = "Les kits par nom Décroissant";
+        $title = \Lang::get('listKits.descNameKits');
         return view('listKits', compact('kits', 'title'));
     }
     public function getAllKitbyNameAsc()
     {
         $kits = $this->repositoryProduit->getOrderBy('title', 'asc');
-        $title = "Les kits par nom Croissant";
+        $title = \Lang::get('listKits.ascNameKits');
         return view('listKits', compact('kits', 'title'));
     }
 }

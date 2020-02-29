@@ -23,5 +23,23 @@ class CompanyController extends Controller
     {
         $companies = $this->repositoryCompany->all()->sortBy('name');
         return view('register', compact('companies'));
+    }    
+    public function getAllSociety()
+    {
+        $societies = $this->repositoryCompany->all();
+        $title = \Lang::get('listSocieties.allLaboratories');
+        return view('listSocieties', compact('societies', 'title'));
+    }
+    public function getAllLaboratorybyNameDesc()
+    {
+        $societies = $this->repositoryCompany->getOrderBy('name', 'desc');
+        $title = \Lang::get('listSocieties.descNameLaboratories');
+        return view('listSocieties', compact('societies', 'title'));
+    }
+    public function getAllLaboratorybyNameAsc()
+    {
+        $societies = $this->repositoryCompany->getOrderBy('name', 'asc');
+        $title = \Lang::get('listSocieties.ascNameLaboratories');
+        return view('listSocieties', compact('societies', 'title'));
     }
 }

@@ -22,7 +22,7 @@ class AuthenticationController extends Controller
 
     public function setRegister(RegisterRequest $request)
     {
-        
+        $request->flash();
         if($this->repositoryAuth->register($request) == true)
         {
             return view('login');
@@ -35,6 +35,7 @@ class AuthenticationController extends Controller
 
     public function setSignin(Request $request)
     {
+        $request->flash();
         if($this->repositoryAuth->signin($request) == true)
         {
             return redirect()->action('ProduitController@getIndex');
