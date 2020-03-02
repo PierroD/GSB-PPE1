@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include("header")
+@include("shared.header")
 
 <!--nom de la page -->
 <title>Liste</title>
@@ -48,9 +48,9 @@
     <table class="uk-table uk-table-hover uk-table-divider uk-container-small uk-margin-auto">
         <thead>
             <tr class="text-center">
-                <th>Nom du Kit</th>
-                <th>Note</th>
-                <th class="uk-text-right">Prix</th>
+                <th>@lang('list.kitName')</th>
+                <th>@lang('list.kitNote')</th>
+                <th class="uk-text-right">@lang('list.kitPrice')</th>
             </tr>
         </thead>
         <tbody>

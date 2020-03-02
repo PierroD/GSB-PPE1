@@ -23,13 +23,13 @@ class ProduitController extends Controller
     public function getKit($id)
     {
         $kit = $this->repositoryProduit->get($id);
-        return view('kit', compact('kit'));
+        return view('kit.index', compact('kit'));
     }
     public function getAllKit()
     {
         $kits = $this->repositoryProduit->all();
         $title = \Lang::get('listKits.allKits');
-        return view('listKits', compact('kits', "title"));
+        return view('lists.kits', compact('kits', "title"));
     }
     public function getIndex()
     {
@@ -41,36 +41,36 @@ class ProduitController extends Controller
     {
         $kits = $this->repositoryProduit->getOrderBy('grade', 'desc');
         $title = \Lang::get('listKits.gradeKits');
-        return view('listKits', compact('kits', 'title'));
+        return view('lists.kits', compact('kits', 'title'));
     }
     public function getAllKitbyLastest()
     {
         $kits = $this->repositoryProduit->getOrderBy('created_at', 'desc');
         $title = \Lang::get('listKits.newKits');
-        return view('listKits', compact('kits', 'title'));
+        return view('lists.kits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceDesc()
     {
         $kits = $this->repositoryProduit->getOrderBy('price', 'desc');
         $title = \Lang::get('listKits.descPriceKits');
-        return view('listKits', compact('kits', 'title'));
+        return view('lists.kits', compact('kits', 'title'));
     }
     public function getAllKitbyPriceAsc()
     {
         $kits = $this->repositoryProduit->getOrderBy('price', 'asc');
         $title = \Lang::get('listKits.ascPriceKits');
-        return view('listKits', compact('kits', 'title'));
+        return view('lists.kits', compact('kits', 'title'));
     }
     public function getAllKitbyNameDesc()
     {
         $kits = $this->repositoryProduit->getOrderBy('title', 'desc');
         $title = \Lang::get('listKits.descNameKits');
-        return view('listKits', compact('kits', 'title'));
+        return view('lists.kits', compact('kits', 'title'));
     }
     public function getAllKitbyNameAsc()
     {
         $kits = $this->repositoryProduit->getOrderBy('title', 'asc');
         $title = \Lang::get('listKits.ascNameKits');
-        return view('listKits', compact('kits', 'title'));
+        return view('lists.kits', compact('kits', 'title'));
     }
 }

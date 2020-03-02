@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include("header")
+@include("shared.header")
 
 <!--nom de la page -->
 <title>@lang('profil.title')</title>
@@ -19,7 +19,7 @@
                 <p class=""> <span class="uk-text-primary">@lang('profil.society')</span> :
                     {{ Auth::User()->company->name }}</p>
                 <p class=""> <span class="uk-text-primary">@lang('profil.birthDate')</span> :
-                    {{ Auth::User()->birth_date }}</p>
+                    {{ date('d/m/Y', strtotime(Auth::User()->birth_date)) }}</p>
             </div>
             <div class="uk-card-footer">
                 <p class="uk-text-center"><span class="uk-text-primary">@lang('profil.role')</span> : {{ $role->name }}

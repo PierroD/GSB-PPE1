@@ -17,7 +17,7 @@ class CompanyController extends Controller
     public function getList()
     {
         $all = $this->repositoryCompany->all();
-        return view('list', compact('all'));
+        return view('lists.all', compact('all'));
     }
     public function getCompanies()
     {
@@ -28,18 +28,18 @@ class CompanyController extends Controller
     {
         $societies = $this->repositoryCompany->all();
         $title = \Lang::get('listSocieties.allLaboratories');
-        return view('listSocieties', compact('societies', 'title'));
+        return view('lists.societies', compact('societies', 'title'));
     }
     public function getAllLaboratorybyNameDesc()
     {
         $societies = $this->repositoryCompany->getOrderBy('name', 'desc');
         $title = \Lang::get('listSocieties.descNameLaboratories');
-        return view('listSocieties', compact('societies', 'title'));
+        return view('lists.societies', compact('societies', 'title'));
     }
     public function getAllLaboratorybyNameAsc()
     {
         $societies = $this->repositoryCompany->getOrderBy('name', 'asc');
         $title = \Lang::get('listSocieties.ascNameLaboratories');
-        return view('listSocieties', compact('societies', 'title'));
+        return view('lists.societies', compact('societies', 'title'));
     }
 }

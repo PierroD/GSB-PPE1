@@ -13,12 +13,16 @@
 
 
 
-//Route::get('/', 'ProduitController@home');
-Route::get('/', 'ProduitController@getIndex'); //index
+// Index \\
+Route::get('/', 'ProduitController@getIndex'); 
 
+// getKit \\
+Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{1,}");
 
-
-Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{1,}"); //Un Kit
+// Create Kit \\
+Route::get('/createKit', function () {
+    return view('kit.create');
+});
 
 Route::group(['prefix' => 'list'], function () {
     // Tous les kits et societies \\
@@ -26,7 +30,7 @@ Route::group(['prefix' => 'list'], function () {
 
     // Kits \\
     Route::group(['prefix' => 'kits'], function () {
-        Route::get('/', 'ProduitController@getAllKit'); //Kits
+        Route::get('/', 'ProduitController@getAllKit'); //All Kits
         Route::get('/orderBy/grade', 'ProduitController@getAllKitbyGrade'); //Kits orderby Grade
         Route::get('/orderBy/priceDesc', 'ProduitController@getAllKitbyPriceDesc'); //Kits orderby PrixDesc
         Route::get('/orderBy/priceAsc', 'ProduitController@getAllKitbyPriceAsc'); //Kits orderby PrixAsc
@@ -52,7 +56,7 @@ Route::group(['prefix' => 'shoppingcart'], function () {
 
 // Login \\
 Route::get('/login', function () {
-    return view('login');
+    return view('auth.login');
 });
 Route::post('/login', 'AuthenticationController@setSignin');
 
@@ -63,12 +67,8 @@ Route::post('/register', 'AuthenticationController@setRegister');
 // Disconnect \\
 Route::get('/disconnect', 'AuthenticationController@setLogout');
 
-
+// Profil \\
 Route::get('/profil', 'RolesController@getRoleProfile');
 
-Route::get('/createKit', function () {
-    return view('createKit');
-});
-
-
-Route::get('test', 'TestController@test1');
+// Paiement \\
+Route::get('/paiement', 'PaiementController@index');

@@ -3,7 +3,7 @@
 return [
     /*
     |--------------------------------------------------------------------------
-    | listTablePage Language Lines
+    | listKits Page Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are used during authentication for various
@@ -11,18 +11,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
-    //Page
-    'selectType' => 'Type sélectionné',
-    'kits' => 'Les Kits',
-    'laboratories' => 'Les Laboratoires',
-    'kitsAndLaboratories' => 'Kits & Laboratoires',
-    'sortBy' => 'Trier par',
-    'priceDesc' => 'Nom Décroissant',
-    'priceAsc' => 'Nom Croissant',
-    'nameDesc' => 'Nom Décroissant',
-    'nameAsc' => 'Nom Croissant',
-    'kitName' => 'Nom du kit',
+    //Page 
+    'kitName' => 'Nom du Kit',
     'kitNote' => 'Note',
     'kitPrice' => 'Prix',
+    
 ];

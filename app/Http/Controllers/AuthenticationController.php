@@ -25,11 +25,11 @@ class AuthenticationController extends Controller
         $request->flash();
         if($this->repositoryAuth->register($request) == true)
         {
-            return view('login');
+            return view('auth.login');
         }
         else
         {
-            return view('register');
+            return view('auth.register');
         }
     }
 
@@ -42,7 +42,7 @@ class AuthenticationController extends Controller
         }
         else
         {
-            return view('login');
+            return view('auth.login');
         }
     }
     public function setLogout()

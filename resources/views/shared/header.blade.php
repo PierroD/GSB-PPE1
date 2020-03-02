@@ -28,10 +28,16 @@
           @lang('header.notConnected')
         </a>
         @else
-        <p class="uk-margin-auto-vertical uk-text-success uk-margin-medium-right uk-border-rounded uk-text-uppercase"
-          disabled>
-          @lang('header.connected')
-        </p>
+        <div class="uk-inline uk-margin-medium-right">
+          <button class="uk-button uk-button-default uk-text-success" type="button">@lang('header.connected')<i
+              class="fas fa-angle-down uk-margin-small-left"></i></button>
+          <div uk-dropdown>
+            <ul class="uk-nav uk-dropdown-nav uk-text-center">
+              <li><a href="/profil"> <i class="far fa-user uk-text-danger"></i> @lang('header.myProfil')</a></li>
+              <li><a href="/buys"><i class="fas fa-shopping-cart uk-text-danger"></i> @lang('header.myOrders')</a></li>
+            </ul>
+          </div>
+        </div>
         @endif
         <a href="/shoppingcart" class="uk-margin-small-right"><span class="uk-badge uk-text-small uk-text-top"
             disabled>@if(Auth::check()==true){{ Cart::session(Auth::User()->id)->getTotalQuantity() }}@else 0

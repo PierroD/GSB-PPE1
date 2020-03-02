@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use Darryldecode\Cart\Cart;
 use App\Produit;
 use App\User;
+use \Darryldecode\Cart\CartCondition;
 
 class ShoppingController extends Controller
 {
@@ -18,20 +19,32 @@ class ShoppingController extends Controller
         if(\Cart::session(Auth::User()->id)->isEmpty())
         {
             $empty = true;          
-            return view("cart", compact("empty"));  
+            return view("shopping.cart", compact("empty"));  
         }
         else
         {
-        $ItemsCollection = \Cart::session(Auth::User()->id)->getContent();
-        $CartTotalPrice = \Cart::session(Auth::User()->id)->getTotal();
-        return view("cart", compact("ItemsCollection", "CartTotalPrice"));
+            $commission = new CartCondition(array(
+                'name' => 'Commission de 5%',
+                'type' => 'tax',
+                'target' => 'total', // this condition will be applied to cart's total when getTotal() is called.
+                'value' => '5%',
+                'order' => 1 // the order of calculation of cart base conditions. The bigger the later to be applied.
+            ));
+            \Cart::session(Auth::User()->id)->clearCartConditions();
+            \Cart::session(Auth::User()->id)->condition($commission);
+            
+            $ItemsCollection = \Cart::session(Auth::User()->id)->getContent();
+            $CartSubTotalPrice = \Cart::session(Auth::User()->id)->getSubTotal();
+            $CartTotalPrice = \Cart::session(Auth::User()->id)->getTotal();
+            $CartConditions = \Cart::getConditions();
+            return view("shopping.cart", compact("ItemsCollection", "CartSubTotalPrice", "CartTotalPrice", "CartConditions"));
         }
         }
         else
 
         {
             $notConnected = true;
-            return view("cart", compact("notConnected"));
+            return view("shopping.cart", compact("notConnected"));
         }
     }
 
@@ -46,7 +59,7 @@ class ShoppingController extends Controller
         else
         {
             $notConnected = true;
-            return view("cart", compact("notConnected"));
+            return view("shopping.cart", compact("notConnected"));
         }
     }
 
@@ -60,7 +73,7 @@ class ShoppingController extends Controller
         else
         {
             $notConnected = true;
-            return view("cart", compact("notConnected"));
+            return view("shopping.cart", compact("notConnected"));
         }
     }
     public function empty()
@@ -73,7 +86,7 @@ class ShoppingController extends Controller
         else
         {
             $notConnected = true;
-            return view("cart", compact("notConnected"));
+            return view("shopping.cart", compact("notConnected"));
         } 
     }
 

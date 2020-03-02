@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include("header")
+@include("shared.header")
 
 <!--nom de la page -->
 <title>Liste</title>

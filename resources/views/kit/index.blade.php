@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include("header")
+@include("shared.header")
 
 <title>Kit | {{ $kit->title }} by {{ $kit->society->name }}</title>
 

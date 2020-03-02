@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-@include("header")
+@include("shared.header")
 
 <!--nom de la page -->
 <title>@lang('createKit.title')</title>
@@ -17,7 +17,7 @@
                     <p> @lang('createKit.productName')</p>
                 </div>
                 <div class="uk-margin-auto">
-                    <input class="uk-input uk-border-rounded" type="text" placeholder="Saisir le nom du produit...">
+                    <input class="uk-input uk-border-rounded" type="text" placeholder="@lang('createKit.productName')">
                 </div>
             </div>
             <hr class="uk-divider-icon">
@@ -27,7 +27,8 @@
                     <p> @lang('createKit.productComposition')</p>
                 </div>
                 <div class="uk-margin-auto">
-                    <textarea class="uk-textarea" rows="5" placeholder="Composition"></textarea>
+                    <textarea class="uk-textarea" rows="5"
+                        placeholder="@lang('createKit.productComposition')"></textarea>
                 </div>
             </div>
             <hr class="uk-divider-icon">
@@ -37,7 +38,8 @@
                     <p> @lang('createKit.productDescription')</p>
                 </div>
                 <div class="uk-margin-auto">
-                    <textarea class="uk-textarea" rows="5" placeholder="Description"></textarea>
+                    <textarea class="uk-textarea" rows="5"
+                        placeholder="@lang('createKit.productDescription')"></textarea>
                 </div>
             </div>
             <hr class="uk-divider-icon">
@@ -47,7 +49,7 @@
                     <p> @lang('createKit.productPrice')</p>
                 </div>
                 <div class="uk-margin-auto">
-                    <input class="uk-input uk-border-rounded" type="text" placeholder="Prix du produit en euro...">
+                    <input class="uk-input uk-border-rounded" type="text" placeholder="@lang('createKit.productPrice')">
                 </div>
             </div>
             <!--upload images-->
