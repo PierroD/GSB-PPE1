@@ -71,4 +71,8 @@ Route::get('/disconnect', 'AuthenticationController@setLogout');
 Route::get('/profil', 'RolesController@getRoleProfile');
 
 // Paiement \\
-Route::get('/paiement', 'PaiementController@index');
+Route::get('/payment', 'PaiementController@index');
+Route::post('/payment', 'PaiementController@store')->name('checkout.store');
+Route::get('/thankyou', function(){
+return view('shopping.thankyou');
+});

@@ -1,4 +1,5 @@
 <script src="https://js.stripe.com/v3/"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}">
 @include("shared.header")
 
 <div class="uk-align-center uk-width-1-2 uk-card uk-card-default">
@@ -6,12 +7,15 @@
         <h1 class="uk-card-title uk-text-center">Paiement</h1>
     </div>
     <div class="uk-card-body">
-        <form>
+        <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
+            @csrf
             <div class="uk-align-center uk-width-1-2">
                 <div id="card-element"></div>
                 <div id="card-errors" role="alert"></div>
             </div>
-            <button class="uk-width-expands uk-button uk-button-primary uk-margin-medium-top uk-border-rounded" id="submit"> Procéder au paiement</button>
+            <button class="uk-width-expands uk-button uk-button-primary uk-margin-medium-top uk-border-rounded"
+                id="submit">
+                Procéder au paiement</button>
         </form>
     </div>
 </div>
@@ -38,9 +42,7 @@
         style: style
     });
     card.mount("#card-element");
-    card.addEventListener('change', ({
-        error
-    }) => {
+    card.addEventListener('change', ({error}) => {
         const displayError = document.getElementById('card-errors');
         if (error) {
             displayError.classList.add('uk-alert', 'uk-alert-warning', 'uk-text-center');
@@ -50,30 +52,49 @@
             displayError.textContent = '';
         }
     });
-    var form = document.getElementById('payment-form');
+    var submitButton = document.getElementById('submit');
 
-    form.addEventListener('submit', function(ev) {
+    submitButton.addEventListener('click', function(ev) {
         ev.preventDefault();
+        submitButton.disabled = true;
         stripe.confirmCardPayment("{{ $clientSecret }}", {
             payment_method: {
                 card: card
-                , billing_details: {
-                    name: 'Jenny Rosen'
-                }
             }
         }).then(function(result) {
             if (result.error) {
                 // Show error to your customer (e.g., insufficient funds)
+                submitButton.disabled = false;
                 console.log(result.error.message);
             } else {
                 // The payment has been processed!
                 if (result.paymentIntent.status === 'succeeded') {
-                    // Show a success message to your customer
-                    // There's a risk of the customer closing the window before callback
-                    // execution. Set up a webhook or plugin to listen for the
-                    // payment_intent.succeeded event that handles any business critical
-                    // post-payment actions.
-                    console.log(result.paymentIntent);
+                    console.log('passed');
+                    var paymentIntent = result.paymentIntent;
+                    var token = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+                    var form = document.getElementById("payment-form");
+                    var url = form.action;
+                    var redirect = '/thankyou';
+                  fetch(
+                      url,
+                      {
+                        headers: {
+                              "Content-Type": "application/json",
+                              "Accept": "application/json, text-plain, */*",
+                              "X-Requested-With": "XMLHttpRequest",
+                              "X-CSRF-TOKEN": token
+                            },
+                        method: 'post',
+                        body: JSON.stringify({
+                                 paymentIntent: paymentIntent,
+                                })
+                        }
+                    ).then((data) => {
+                        console.log(data)
+                        window.location.href = redirect;
+                    }).catch((error) =>{
+                        console.log(error)
+                    })
                 }
             }
         });

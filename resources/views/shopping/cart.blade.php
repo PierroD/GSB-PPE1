@@ -15,7 +15,8 @@
         <a class="uk-button uk-button-primary uk-border-rounded" href="/login">@lang('cart.connect')</a>
     </div>
     @else
-    <div class="uk-container-small uk-margin-auto uk-margin-medium-top uk-card uk-card-default uk-card-small uk-border-rounded uk-child-width-1-1@s uk-child-width-1-2@m" uk-grid>
+    <div class="uk-container-small uk-margin-auto uk-margin-medium-top uk-card uk-card-default uk-card-small uk-border-rounded uk-child-width-1-1@s uk-child-width-1-2@m"
+        uk-grid>
         <div>
             <div class="uk-card-header uk-grid-collapse uk-child-width-1-4 uk-margin" uk-grid>
                 <div>
@@ -34,7 +35,8 @@
             </div>
             @if(isset($empty))
             <div class="uk-container uk-margin-medium-bottom">
-                <div class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto uk-margin-medium-bottom">
+                <div
+                    class="uk-text-center uk-background-muted uk-padding uk-border-rounded uk-width-medium uk-margin-auto uk-margin-medium-bottom">
                     <h4 class="uk-text-italic uk-text-muted">@lang('cart.noProduct')</h4>
                     <i class="fas fa-box-open fa-3x"></i>
                 </div>
@@ -42,7 +44,8 @@
             @else
             @foreach($ItemsCollection as $Item)
             <div class="uk-card-body uk-text-center">
-                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-4 uk-margin uk-border-rounded" uk-grid>
+                <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-4 uk-margin uk-border-rounded"
+                    uk-grid>
                     <div class="uk-card-body">
                         <div>
                             <a class="uk-text-small uk-text-emphasis" href="/society/kit/{{ $Item->id }}">
@@ -84,7 +87,7 @@
                 @foreach($CartConditions as $Condition)
                 <hr>
                 <p class="uk-text-bottom"> {{ $Condition->getName() }} :
-                    {{ getPrice($Condition->getValue()) }}
+                    {{ getPrice($CartTotalPrice - $CartSubTotalPrice) }}
                 </p>
                 @endforeach
                 <hr>
@@ -92,7 +95,7 @@
                     {{ getPrice($CartTotalPrice) }}
                 </p>
 
-                <button class="uk-button uk-button-primary uk-border-rounded">@lang('cart.pay')</button>
+                <a class="uk-button uk-button-primary uk-border-rounded" href="/payment">@lang('cart.pay')</a>
             </div>
         </div>
         @endif
