@@ -42,4 +42,10 @@ class CompanyController extends Controller
         $title = \Lang::get('listSocieties.ascNameLaboratories');
         return view('lists.societies', compact('societies', 'title'));
     }
+    public function getSociety($id)
+    {
+        $society = $this->repositoryCompany->get($id);
+        return view('society.index', compact('society'));
+    }
+
 }

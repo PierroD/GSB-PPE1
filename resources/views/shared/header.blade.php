@@ -33,8 +33,14 @@
               class="fas fa-angle-down uk-margin-small-left"></i></button>
           <div uk-dropdown>
             <ul class="uk-nav uk-dropdown-nav uk-text-center">
+              <li><a href="/createKit"><i class="fas fa-plus-circle uk-text-danger"></i> @lang('header.addProduct')</a>
+              </li>
               <li><a href="/profil"> <i class="far fa-user uk-text-danger"></i> @lang('header.myProfil')</a></li>
               <li><a href="/buys"><i class="fas fa-shopping-cart uk-text-danger"></i> @lang('header.myOrders')</a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a href="/disconnect" class="uk-text-danger"><i class="fas fa-power-off"></i>
+                  @lang('header.disconnected')</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -80,6 +86,8 @@
           <div uk-dropdown="pos: bottom-justify; mode: click">
             <ul class="uk-nav uk-dropdown-nav">
               <li class="uk-active"><a class="uk-text-danger" href="#">@lang('header.optionsList')</a></li>
+              <li><a href="/createKit"><i class="fas fa-plus-circle uk-text-danger"></i> @lang('header.addProduct')</a>
+              </li>
               <li><a href="/profil"> <i class="far fa-user uk-text-danger"></i> @lang('header.myProfil')</a></li>
               <li><a href="/buys"><i class="fas fa-shopping-cart uk-text-danger"></i> @lang('header.myOrders')</a></li>
               <li class="uk-nav-divider"></li>

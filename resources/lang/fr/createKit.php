@@ -20,7 +20,7 @@ return [
     'productPrice' => 'Prix du produit',
     'chooseImages' => 'Choisir des images ',
     'attachFiles' => 'Attacher des fichiers en les déposants ici',
-    'selectOne' => 'En choisir une',
+    'selectOne' => 'En choisir un en cliquant ici',
     'post' => 'Poster',
     // Placeholders
     'productName' => 'Saisir le nom du produit...',

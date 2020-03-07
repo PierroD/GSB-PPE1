@@ -7,7 +7,29 @@
         <h1 class="uk-card-title uk-text-center">Paiement</h1>
     </div>
     <div class="uk-card-body">
-        <form action="{{ route('checkout.store') }}" method="POST" id="payment-form">
+        <ul uk-accordion class="uk-width-1-2 uk-align-center">
+            <li>
+                <a class="uk-accordion-title" href="#">Récapitulatif de la commande</a>
+                <div class="uk-accordion-content">
+                    @foreach($products as $product)
+                    <div class="uk-grid-collapse uk-child-width-1-3 uk-margin uk-border-rounded uk-text-center" uk-grid>
+                        <p>{{$product->name}}</p>
+                        <p>{{$product->quantity}} x {{getPrice($product->price)}}</p>
+                        <p>{{ getPrice($product->price * $product->quantity) }}</p>
+                    </div>
+                    @endforeach
+                    <hr>
+                    <div class="uk-grid-collapse uk-child-width-1-2 uk-margin uk-border-rounded" uk-grid>
+                        <p class="uk-text-left">{{getPrice($CartSubTotalPrice)}} + @foreach($CartConditions as
+                            $Condition)
+                            {{ $Condition->getName() }}
+                            @endforeach</p>
+                        <p class="uk-text-right">{{ getPrice($CartTotalPrice) }}</p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <form method="{{ route('checkout.store') }}" id="payment-form">
             @csrf
             <div class="uk-align-center uk-width-1-2">
                 <div id="card-element"></div>

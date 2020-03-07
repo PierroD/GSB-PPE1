@@ -23,6 +23,7 @@ return [
     'shoppingCart' => 'Panier',
     'hello' => 'Bonjour',
     'optionsList' => 'Liste des options',
+    'addProduct' => 'Ajouter un produit',
     'myProfil' => 'Mon profil',
     'myOrders' => 'Mes achats',
     'disconnected' => 'Déconnexion',

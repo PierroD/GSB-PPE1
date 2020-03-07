@@ -18,6 +18,8 @@ Route::get('/', 'ProduitController@getIndex');
 
 // getKit \\
 Route::get('/society/kit/{id}', 'ProduitController@getKit')->where("id", "[0-9]{1,}");
+// getSociety \\
+Route::get('society/{id}', 'CompanyController@getSociety')->where("id", "[0-9]{1,}");
 
 // Create Kit \\
 Route::get('/createKit', function () {
@@ -27,7 +29,7 @@ Route::get('/createKit', function () {
 Route::group(['prefix' => 'list'], function () {
     // Tous les kits et societies \\
     Route::get('/', 'CompanyController@getList'); //tout
-
+    
     // Kits \\
     Route::group(['prefix' => 'kits'], function () {
         Route::get('/', 'ProduitController@getAllKit'); //All Kits
@@ -38,7 +40,7 @@ Route::group(['prefix' => 'list'], function () {
         Route::get('/orderBy/nameAsc', 'ProduitController@getAllKitbyNameAsc');  //Kit orderby NameAsc
         Route::get('/orderBy/lastest', 'ProduitController@getAllKitbyLastest');  //Kit orderby Lastest
     });
-
+    
     Route::group(['prefix' => 'societies'], function () {
         // Societies \\
         Route::get('/', 'CompanyController@getAllSociety'); // Societes
@@ -61,7 +63,7 @@ Route::get('/login', function () {
 Route::post('/login', 'AuthenticationController@setSignin');
 
 // Register \\
-Route::get('register', 'CompanyController@getCompanies');
+Route::get('/register', 'CompanyController@getCompanies');
 Route::post('/register', 'AuthenticationController@setRegister');
 
 // Disconnect \\
@@ -73,6 +75,10 @@ Route::get('/profil', 'RolesController@getRoleProfile');
 // Paiement \\
 Route::get('/payment', 'PaiementController@index');
 Route::post('/payment', 'PaiementController@store')->name('checkout.store');
-Route::get('/thankyou', function(){
-return view('shopping.thankyou');
+Route::get('/thankyou', 'PaiementController@thankYou');
+
+
+// Admin \\
+Route::get('/admin', function () {
+    return view('admin.index');
 });
