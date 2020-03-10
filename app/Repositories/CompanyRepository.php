@@ -21,7 +21,7 @@ class CompanyRepository implements CompanyRepositoryInterface
     }
     public function update($company_id, array $company_data)
     {
-        Company::find($company_id)->update($company_id);
+        Company::find($company_id)->update($company_data);
     }
     public function getOrderBy($data, $type)
     {

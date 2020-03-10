@@ -21,7 +21,7 @@ class UserRepository implements UserRepositoryInterface
     }
     public function update($user_id, array $user_data)
     {
-        User::find($user_id)->update($user_id);
+        User::find($user_id)->update($user_data);
     }
     public function getOrderBy($data, $type)
     {

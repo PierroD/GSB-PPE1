@@ -22,6 +22,6 @@ class RolesRepository implements RolesRepositoryInterface
     }
     public function update($Roles_id, array $Roles_data)
     {
-        Roles::find($Roles_id)->update($Roles_id);
+        Roles::find($Roles_id)->update($Roles_data);
     }
 }

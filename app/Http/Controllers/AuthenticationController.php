@@ -36,9 +36,13 @@ class AuthenticationController extends Controller
     public function setSignin(Request $request)
     {
         $request->flash();
-        if($this->repositoryAuth->signin($request) == true)
+        if($this->repositoryAuth->signin($request) == 0)
         {
             return redirect()->action('ProduitController@getIndex');
+        }
+        if($this->repositoryAuth->signin($request) == 2)
+        {
+            return redirect()->action('UserController@getAll');
         }
         else
         {

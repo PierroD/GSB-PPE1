@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\ProduitRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class ProduitController extends Controller
 {
@@ -72,5 +73,17 @@ class ProduitController extends Controller
         $kits = $this->repositoryProduit->getOrderBy('title', 'asc');
         $title = \Lang::get('listKits.ascNameKits');
         return view('lists.kits', compact('kits', 'title'));
+    }
+    public function getAllProducts()
+    {        
+        if(Auth::check() && Auth::User()->role->authorization == 2)
+        {
+            $products = $this->repositoryProduit->all();
+            return view('admin.product', compact('products'));
+        }
+        else
+        {
+            abort(404);
+        }
     }
 }

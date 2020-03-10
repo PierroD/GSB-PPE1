@@ -21,4 +21,14 @@ class RolesController extends Controller
         $role = $this->repositoryRoles->get(Auth::User()->id); 
         return view('profil', compact('role'));
     }
+    public function setRole()
+    {
+        if(Auth::check() && Auth::User()->role->authorization == 2)
+        {
+        }
+        else
+        {
+            abort(404);
+        }
+    }
 }

@@ -79,6 +79,10 @@ Route::get('/thankyou', 'PaiementController@thankYou');
 
 
 // Admin \\
-Route::get('/admin', function () {
-    return view('admin.index');
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', 'UserController@getAll');
+    Route::get('/setrole', 'RoleController@setRole');
+    Route::get('/society', 'CompanyController@getAllCompanies');
+    Route::get('/society/delete/{id}', 'CompanyController@deleteCompany');
+    Route::get('/product', 'ProduitController@getAllProducts');
 });

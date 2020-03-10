@@ -21,6 +21,6 @@ class ClientRepository implements ClientRepositoryInterface
     }
     public function update($client_id, array $client_data)
     {
-        Client::find($client_id)->update($client_id);
+        Client::find($client_id)->update($client_data);
     }
 }

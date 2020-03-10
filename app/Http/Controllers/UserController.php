@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\UserRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller 
 {
@@ -16,8 +17,15 @@ class UserController extends Controller
 
     public function getAll()
     {
-        $all = $this->repositoryClient->all();
-        return view('list', compact('all'));
+        if(Auth::check() && Auth::User()->role->authorization == 2)
+        {
+        $users = $this->repositoryClient->all();
+        return view('admin.index', compact('users'));
+        }
+        else
+        {
+            abort(404);
+        }
     }
 
 

@@ -23,21 +23,21 @@
         <div class="uk-card-body uk-text-left uk-height-medium ">
             <ul class="uk-list uk-list-divider">
                 <li>
-                    <a class="uk-button uk-button-link uk-text-emphasis uk-margin-small-top uk-margin-small-bottom"><i
-                            class="fas fa-users"></i> Gérer les utilisateurs</a>
+                    <a class="uk-button uk-button-link uk-text-emphasis uk-margin-small-top uk-margin-small-bottom"
+                        href="/admin"><i class="fas fa-users"></i> Gérer les utilisateurs</a>
                 </li>
                 <li>
-                    <a class="uk-button uk-button-link uk-text-emphasis uk-margin-small-top uk-margin-small-bottom"><i
-                            class="fas fa-building"></i> Gérer les sociétés</a>
+                    <a class="uk-button uk-button-link uk-text-emphasis uk-margin-small-top uk-margin-small-bottom"
+                        href="/admin/society"><i class="fas fa-building"></i> Gérer les sociétés</a>
                 </li>
                 <li>
-                    <a class="uk-button uk-button-link uk-text-emphasis uk-margin-small-top uk-margin-small-bottom"><i
-                            class="fas fa-flask"></i> Gérer les produits</a>
+                    <a class="uk-button uk-button-link uk-text-emphasis uk-margin-small-top uk-margin-small-bottom"
+                        href="/admin/product"><i class="fas fa-flask"></i> Gérer les produits</a>
                 </li>
             </ul>
         </div>
         <div class="uk-height-large uk-flex uk-flex-bottom uk-flex-center">
-            <a class="uk-button uk-button-danger uk-border-rounded"><i
+            <a class="uk-button uk-button-danger uk-border-rounded" href="/disconnect"><i
                     class="fas fa-power-off uk-margin-small-right"></i> Déconnexion</a>
         </div>
     </div>

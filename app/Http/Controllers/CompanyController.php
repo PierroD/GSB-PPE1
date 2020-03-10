@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Repositories\CompanyRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class CompanyController extends Controller
 {
@@ -47,5 +48,26 @@ class CompanyController extends Controller
         $society = $this->repositoryCompany->get($id);
         return view('society.index', compact('society'));
     }
-
+    public function getAllCompanies()
+    {
+        if(Auth::check() && Auth::User()->role->authorization == 2)
+        {
+            $companies = $this->repositoryCompany->all();
+            return view('admin.society', compact('companies'));
+        }
+        else
+        {
+            abort(404);
+        }
+    }
+    public function deleteCompany($id)
+    {
+        if(Auth::check() && Auth::User()->role->authorization == 2)
+        {
+         }
+        else
+        {
+            abort(404);
+        }
+    }
 }

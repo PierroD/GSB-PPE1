@@ -25,18 +25,15 @@ class AuthenticationRepository implements AuthenticationRepositoryInterface
 
     public function signin(Request $request)
     {
-        $bool = false;
+
         if (Auth::check() == false) {
             $mail = $request->get('mail');
             $mdpconnect = $request->get('password');
             if (Auth::attempt(['mail' => $mail, 'password' => $mdpconnect]) == true) {  
                 \Cart::session(Auth::User()->id);
-               $bool = true;
             }
-        } else {
-            $bool = false;
-        }
-        return $bool;
+        } 
+        return Auth::User()->role->authorization;
     }
     public function logout()
     {
